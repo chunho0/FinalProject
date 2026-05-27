@@ -36,9 +36,14 @@ namespace FinalProject_ChunHoChoy_PeilinWu
         public void DisplayUserDetails()
         {
             Console.WriteLine($"Username: \t\t{Username}");
-            Console.WriteLine($"Password: \t\t********");
+            Console.WriteLine($"Password: \t\t{new string('*', Password.Length)}");//fun lil function to display the password as asterisks for security reasons
             Console.WriteLine($"Role: \t\t\t{Role}");
             Console.WriteLine($"Membership: \t\t{Membership}");
+        }
+        public virtual void DisplayGuestDetails()
+        {
+            //this method will be overridden in the guest class to display the guest details
+            
         }
     }
 }

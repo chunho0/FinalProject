@@ -18,9 +18,9 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
             // add admin object in user class
             User admin = new User("admin", "admin", "admin", "admin");
-            User test1 = new User("test1", "00000000", "guest", "bronze");
-            User test2 = new User("test2", "00000000", "guest", "silver");
-            User test3 = new User("test3", "00000000", "guest", "gold");
+            Guest test1 = new Guest("test1", "00000000", "guest", "bronze", "test001@example.com", "02000000001", "WELLINGTON");
+            Guest test2 = new Guest("test2", "00000000", "guest", "silver", "test002@example.com", "02000000002", "AUCKLAND");
+            Guest test3 = new Guest("test3", "00000000", "guest", "gold", "test003@example.com", "02000000003", "CHRISTCHURCH");
             //added 3 test users for testing purpose
             //add object to list
             users.Add(admin);
@@ -562,6 +562,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         {
                             Console.WriteLine($"User {userIndex + 1}:");
                             user.DisplayUserDetails();
+                            user.DisplayGuestDetails();
                             userIndex++;
                         }
                         break;
