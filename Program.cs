@@ -124,14 +124,14 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             while (adminRun)
             {
                 Console.WriteLine("\n\n---------- Admin Menu ----------");
-                Console.WriteLine("\t\t1. Add Flight");
-                Console.WriteLine("\t\t2. Update Flight");
-                Console.WriteLine("\t\t3. Remove Flight");
-                Console.WriteLine("\t\t4. Display Flight");
-                Console.WriteLine("\t\t5. Search Flight");
-                Console.WriteLine("\t\t6. View Booking");
-                Console.WriteLine("\t\t7. Manage User Account");
-                Console.WriteLine("\t\t8. Logout");
+                Console.WriteLine("\t1. Add Flight");
+                Console.WriteLine("\t2. Update Flight");
+                Console.WriteLine("\t3. Remove Flight");
+                Console.WriteLine("\t4. Display Flight");
+                Console.WriteLine("\t5. Search Flight");
+                Console.WriteLine("\t6. View Booking");
+                Console.WriteLine("\t7. Manage User Account");
+                Console.WriteLine("\t8. Logout");
                 Console.Write("\nChoose an option: ");
 
                 string choice = Console.ReadLine();
@@ -220,7 +220,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             Console.Write("Landing Airport: ");
             string landingAirport = Console.ReadLine().ToUpper();
 
-            Console.Write("Departure Time (dd/mm/yyyy hh:mm): ");
+            Console.Write("Departure Time (dd/mm/yyyy hh:mm(in 24 hour)): ");
             string departureTimeInput = Console.ReadLine();
             DateTime departureTime = DateTime.Parse(departureTimeInput);
 
@@ -295,19 +295,71 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 Console.Write("Enter flight number: ");
                 string searchNumber = Console.ReadLine().ToUpper();
 
+                //use foreach loop to search the flight in the flight list
                 foreach (Flight flight in flights)
                 {
                   if (flight.FlightNumber.ToUpper() == searchNumber.ToUpper())
                     {
-                        Console.WriteLine("\nFlight found:");
-                        Console.WriteLine("\n\n---------- Flight Detail ----------");
+                        Console.WriteLine();
                         flight.DisplayFlightDetails();
                         matchCount++;
                     }
                 }
-            }
+                //display match count
+                if (matchCount == 0)
+                {
+                    Console.WriteLine("\nNo matching flight available");
 
-        }
+                }
+                else if (matchCount == 1)
+                {
+                    Console.WriteLine("\nThere is 1 flight available");
+                }
+                else
+                {
+                    Console.WriteLine($"\nThere are {matchCount} flights available");
+                }
+            }
+            else if (choice == "2")
+            {
+                Console.WriteLine("Enter departure airport: ");
+                string searchDepartureAirport = Console.ReadLine().ToUpper();
+
+                Console.WriteLine("Enter landing airport: ");
+                string searchLandingAirport = Console.ReadLine().ToUpper();
+
+                Console.WriteLine("\nEnter departure date (dd/mm/yyyy): ");
+                DateTime searchDate = Convert.ToDateTime(Console.ReadLine());
+
+                //use foreach loop to search the flight in the flight list
+                foreach (Flight flight in flights)
+                {
+                    DateTime flightDepartureDate = Convert.ToDateTime(flight.DepartureTime);//converting the departuretime in the list from string to DateTime datatype
+                    if (flight.DepartureAirport.ToUpper() == searchDepartureAirport.ToUpper() &&
+                        flight.LandingAirport.ToUpper() == searchLandingAirport.ToUpper() &&
+                        flightDepartureDate.Date == searchDate.Date)//only need to compare the date part because this is accoring to the user habbit
+                    {
+                        Console.WriteLine();
+                        flight.DisplayFlightDetails();
+                        matchCount++;
+                    }
+                }
+                //display match count
+                if (matchCount == 0)
+                {
+                    Console.WriteLine("\nNo matching flight available");
+
+                }
+                else if (matchCount == 1)
+                {
+                    Console.WriteLine("\nThere is 1 flight available");
+                }
+                else
+                {
+                    Console.WriteLine($"\nThere are {matchCount} flights available");
+                }
+            }
+        }//end of search flight method
 
 
     }//end of program
