@@ -556,13 +556,13 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 {
                     case "1":
                         Console.WriteLine($"\nYou have selected {choice}. Display Users...");
-                        Console.WriteLine();
+                        
                         Console.WriteLine("\n\n---------- User Detail ----------");
                         int userIndex = 0;
                         foreach (User user in users)
                         {
-                            Console.WriteLine($"User {userIndex + 1}:");
                             Console.WriteLine();
+                            Console.WriteLine($"User {userIndex + 1}:");
                             user.DisplayUserDetails();
                             user.DisplayGuestDetails();
                             userIndex++;

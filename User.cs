@@ -37,7 +37,6 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             Console.WriteLine($"Username: \t\t{Username}");
             Console.WriteLine($"Password: \t\t{new string('*', Password.Length)}");//fun lil function to display the password as asterisks for security reasons
             Console.WriteLine($"Role: \t\t\t{Role}");
-            Console.WriteLine($"Membership: \t\t{Membership}");
         }
         public virtual void DisplayGuestDetails()
         {

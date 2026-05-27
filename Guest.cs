@@ -11,22 +11,25 @@ namespace FinalProject_ChunHoChoy_PeilinWu
         private string email;
         private string phonenumber;
         private string address;
+        private string membership;
       
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
+        public string Membership { get; set; }
 
         public Guest(string username, string password, string role, string membership, string email, string phoneNumber, string address) : base(username, password, role)
         {
             Email = email;
             PhoneNumber = phoneNumber;
             Address = address;
+            Membership = membership;
         }
 
         public override void DisplayGuestDetails()
         {
             
-
+            Console.WriteLine($"Membership: \t\t{Membership}");
             Console.WriteLine($"Email: \t\t\t{Email}");
             Console.WriteLine($"Phone Number: \t\t{PhoneNumber}");
             Console.WriteLine($"Address: \t\t{Address}");
