@@ -408,6 +408,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         case "3":
                             Console.Write("New Departure Time (dd/mm/yyyy hh:mm): ");
                             flight.DepartureTime = Console.ReadLine();
+                            flight.IsLastMinute = Flight.CheckLastMinute(Convert.ToDateTime(flight.DepartureTime));
                             break;
 
                         case "4":
@@ -423,6 +424,8 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
                             Console.Write("Selection: ");
                             int aircraftChoice = Convert.ToInt32(Console.ReadLine());
+                            flight.AircraftModel = Flight.GetAircraftModel(aircraftChoice);
+                            flight.AvailableSeats = Flight.GetAvailableSeats(flight.AircraftModel);
                             break;
 
                         default:
