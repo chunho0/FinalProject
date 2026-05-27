@@ -114,5 +114,19 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 return 0;//if the model is invalid then return 0 available seats
             }
         }//end of GetAvailableSeats method
+
+        //this is a upgraded fuction i would like to add later on but i will do the 
+        //basic coding here and then i might add this feature later on
+        public static bool CheckLastMinute(DateTime departureTime)
+        {
+            TimeSpan timeLeft = departureTime - DateTime.Now;
+            //i will set the last minute flight 2 hours before departure
+            if(timeLeft.TotalMinutes <= 120 && timeLeft.TotalMinutes >= 0)
+            {
+                return true;
+            }
+            return false;
+        }//end of CheckLastMinute method
+
     }
 }
