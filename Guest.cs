@@ -30,5 +30,41 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             Console.WriteLine($"Phone Number: \t\t{PhoneNumber}");
             Console.WriteLine($"Address: \t\t{Address}");
         }
+
+        public static Guest AddGuest(string role, string membership)
+        {
+            Console.WriteLine("\nEnter guest details:");
+            Console.Write("Username: ");
+            string username = Console.ReadLine();
+            Console.Write("Password: ");
+            string password = Console.ReadLine();
+            Console.Write("Email: ");
+            string email = Console.ReadLine();
+            Console.Write("Phone Number: ");
+            string phoneNumber = Console.ReadLine();
+            Console.Write("Address: ");
+            string address = Console.ReadLine();
+
+            Console.WriteLine("------Confirm Guest Details------");
+            Console.WriteLine($"Username: {username}");
+            Console.WriteLine($"Password: {password}");
+            Console.WriteLine($"Email: {email}");
+            Console.WriteLine($"Phone Number: {phoneNumber}");
+            Console.WriteLine($"Address: {address}");
+
+            Console.Write("Are the details correct? (Y/N): ");
+            string confirmation = Console.ReadLine().ToUpper();
+            if (confirmation == "Y")
+            {
+                Console.WriteLine("Guest Added");
+                return new Guest(username, password, role, membership, email, phoneNumber, address);
+            }
+            else
+            {
+                Console.WriteLine("Cancelled adding guest.");
+                return null;
+            }
+            
+        }
     }
 }
