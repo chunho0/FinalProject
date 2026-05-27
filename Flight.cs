@@ -56,7 +56,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
         public void DisplayFlightDetails()
         {
-            Console.WriteLine($"\n\n----------Flight Detail ----------");
+            //Console.WriteLine($"\n\n----------Flight Detail ----------");
             Console.WriteLine($"Flight Number: \t\t\t{FlightNumber}");
             Console.WriteLine($"Departure Airport: \t\t{DepartureAirport}");
             Console.WriteLine($"Landing Airport: \t\t{LandingAirport}");

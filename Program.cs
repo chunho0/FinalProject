@@ -303,6 +303,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                   if (flight.FlightNumber.ToUpper() == searchNumber.ToUpper())
                     {
                         Console.WriteLine();
+                        Console.WriteLine($"\n\n----------Flight Detail ----------");
                         flight.DisplayFlightDetails();
                         matchCount++;
                     }
@@ -342,6 +343,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         flightDepartureDate.Date == searchDate.Date)//only need to compare the date part because this is accoring to the user habbit
                     {
                         Console.WriteLine();
+                        Console.WriteLine($"\n\n----------Flight Detail ----------");
                         flight.DisplayFlightDetails();
                         matchCount++;
                     }
