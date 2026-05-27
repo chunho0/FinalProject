@@ -202,6 +202,11 @@
             }//end of foreach loop
         }//end of display method
 
+        //creating the add flight method
+        static void AddFlight()
+        {
+
+        }
 
 
     }//end of program

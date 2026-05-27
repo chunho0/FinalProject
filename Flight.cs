@@ -65,6 +65,31 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             Console.WriteLine($"Aircraft Model: \t\t{AircraftModel}");
             Console.WriteLine($"Available Seats: \t\t{AvailableSeats}");
             Console.WriteLine($"Last Minute Flight: \t\t{IsLastMinute}");
+        }//end of DisplayFlightDetails method
+
+
+        //add aircraft model method
+        //previously i did it in the main and this is done by a huge block of code
+        //with bunch of if statement but i think it is better to put it in the flight class
+        public static string GetAircraftModel(int aircrafChoice)//passing the aircrafChoice parameter from the user input
+        {
+            if (aircrafChoice == 1)
+            {
+                return "ATR 72";
+            }
+            else if (aircrafChoice == 2)
+            {
+                return "Airbus A320";
+
+            }
+            else if (aircrafChoice == 3)
+            {
+                return "Boeing 777";
+            }
+            else
+            { 
+                return "Invalid choice. Please select a valid aircraft model.";
+            }
         }
     }
 }
