@@ -151,6 +151,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
                     case "3":
                         Console.WriteLine($"\nYou have selected {choice}. Remove Flight...");
+                        RemoveFlight();//adding remove flight method
                         break;
 
                     case "4":
@@ -487,6 +488,41 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
             //this logic is almost the same as the search flight and add flight method
         }//end of update flight method
+
+        //creating removeflight method
+        static void RemoveFlight()
+        {
+            Console.WriteLine("\n\n---------- Remove Flight ----------");
+            if (flights.Count == 0)
+            {
+                Console.WriteLine("\nNo flights available...");
+                return;
+            }
+            Console.Write("Enter flight number to remove: ");
+            string removeFlightNumber = Console.ReadLine().ToUpper();
+            foreach (Flight flight in flights)
+            {
+                if (flight.FlightNumber.ToUpper() == removeFlightNumber)
+                {
+                    flight.DisplayFlightDetails();
+                    Console.WriteLine();
+                    Console.WriteLine("----------------------------------");
+                    Console.Write("\nConfirm removing this flight?(Y/N): ");
+                    string confirmRemove = Console.ReadLine().ToUpper();
+                    if (confirmRemove == "Y")
+                    {
+                        flights.Remove(flight);
+                        Console.WriteLine("\nFlight removed successfully...");
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nRemove cancelled...");
+                    }
+                    return;
+                }
+            }
+            Console.WriteLine("\nFlight not found...");
+        }//end of remove flight method
 
     }//end of program
 }
