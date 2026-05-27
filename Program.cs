@@ -18,9 +18,15 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
             // add admin object in user class
             User admin = new User("admin", "admin", "admin", "admin");
-
+            User test1 = new User("test1", "00000000", "guest", "bronze");
+            User test2 = new User("test2", "00000000", "guest", "silver");
+            User test3 = new User("test3", "00000000", "guest", "gold");
+            //added 3 test users for testing purpose
             //add object to list
             users.Add(admin);
+            users.Add(test1);
+            users.Add(test2);
+            users.Add(test3);
 
             //adding 3 demo flights
             //this is for testing purposes
@@ -170,6 +176,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
                     case "7":
                         Console.WriteLine($"\nYou have selected {choice}. Manage User Account...");
+                        UserAccountManager();//adding user account manager method
                         break;
 
                     case "8":
@@ -525,6 +532,65 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             }
             Console.WriteLine("\nFlight not found...");
         }//end of remove flight method
+
+
+        //creating user account manager method
+        static void UserAccountManager()
+        {
+            bool userAccountManagerRun = true;
+            while (userAccountManagerRun)
+            {
+                Console.WriteLine("\n\n------------ User Account Manager ----------");
+                Console.WriteLine("\t1. Display Users");
+                Console.WriteLine("\t2. Add User");
+                Console.WriteLine("\t3. Remove User");
+                Console.WriteLine("\t4. Modify User");
+                Console.WriteLine("\t5. Back to Admin Menu");
+
+                Console.Write("\nChoose an option: ");
+
+                string choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "1":
+                        Console.WriteLine($"\nYou have selected {choice}. Display Users...");
+                        Console.WriteLine();
+                        Console.WriteLine("\n\n---------- User Detail ----------");
+                        int userIndex = 0;
+                        foreach (User user in users)
+                        {
+                            Console.WriteLine($"User {userIndex + 1}:");
+                            user.DisplayUserDetails();
+                            userIndex++;
+                        }
+                        break;
+                    case "2":
+                        Console.WriteLine($"\nYou have selected {choice}. Add User...");
+                        break;
+                    case "3":
+                        Console.WriteLine($"\nYou have selected {choice}. Remove User...");
+                        break;
+                    case "4":
+                        Console.WriteLine($"\nYou have selected {choice}. Modify User...");
+                        break;
+                    case "5":
+                        Console.WriteLine($"\nYou have selected {choice}. Back to Admin Menu...");
+                        userAccountManagerRun = false;
+                        return;
+                    default:
+                        Console.WriteLine("\nInvalid option...");
+                        break;
+                }
+            }
+        }//end of user account manager method
+
+
+
+
+
+
+
 
     }//end of program
 }

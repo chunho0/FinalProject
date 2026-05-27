@@ -32,5 +32,13 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             Membership = membership;
 
         }
+
+        public void DisplayUserDetails()
+        {
+            Console.WriteLine($"Username: \t\t{Username}");
+            Console.WriteLine($"Password: \t\t********");
+            Console.WriteLine($"Role: \t\t\t{Role}");
+            Console.WriteLine($"Membership: \t\t{Membership}");
+        }
     }
 }
