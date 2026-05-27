@@ -3,8 +3,8 @@ HOW TO USE
 
 Login Information
 Default Admin Account
-*Username: admin
-*Password: admin
+\nUsername: admin
+\nPassword: admin
 Notes:
 Username is not case-sensitive.
 Password is case-sensitive.
