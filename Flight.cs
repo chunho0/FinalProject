@@ -47,5 +47,24 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             IsLastMinute = isLastMinute;
             AircraftModel = aircraftModel;
         }
+
+        //adding display method to display the flight details
+        //this was previously in the program class but i think
+        //it is better to put it in the flight class because
+        //it is more related to the flight details
+        //and i can reuse this method whenever i want to display the flight details
+
+        public void DisplayFlightDetails()
+        {
+            Console.WriteLine($"\n\n----------Flight Detail ----------");
+            Console.WriteLine($"Flight Number: \t\t\t{FlightNumber}");
+            Console.WriteLine($"Departure Airport: \t\t{DepartureAirport}");
+            Console.WriteLine($"Landing Airport: \t\t{LandingAirport}");
+            Console.WriteLine($"Departure Time: \t\t{DepartureTime}");
+            Console.WriteLine($"Price: \t\t\t\t${Price}");
+            Console.WriteLine($"Aircraft Model: \t\t{AircraftModel}");
+            Console.WriteLine($"Available Seats: \t\t{AvailableSeats}");
+            Console.WriteLine($"Last Minute Flight: \t\t{IsLastMinute}");
+        }
     }
 }
