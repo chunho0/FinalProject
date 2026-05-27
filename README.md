@@ -6,9 +6,9 @@ Default Admin Account
 Username: admin
 Password: admin
 Notes:
-* Username is not case-sensitive.
-* Password is case-sensitive.
-* The default admin account is all lowercase.
+Username is not case-sensitive.
+Password is case-sensitive.
+The default admin account is all lowercase.
 
 
 Current Functions
