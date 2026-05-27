@@ -90,6 +90,29 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             { 
                 return "Invalid choice. Please select a valid aircraft model.";
             }
-        }
+        }//end of GetAircraftModel method
+
+        //adding the seat count method with the input of the aircraft model
+        //as the method above returned the model as string
+        //i am gonna use sting to compare the models
+        public static int GetAvailableSeats(string aircraftModel)
+        {
+            if (aircraftModel == "ATR 72")
+            {
+                return 70;
+            }
+            else if (aircraftModel == "Airbus A320")
+            {
+                return 180;
+            }
+            else if (aircraftModel == "Boeing 777")
+            {
+                return 350;
+            }
+            else
+            {
+                return 0;//if the model is invalid then return 0 available seats
+            }
+        }//end of GetAvailableSeats method
     }
 }
