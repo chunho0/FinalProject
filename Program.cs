@@ -1,4 +1,6 @@
-﻿namespace FinalProject_ChunHoChoy_PeilinWu
+﻿using System.Diagnostics;
+
+namespace FinalProject_ChunHoChoy_PeilinWu
 {
     internal class Program
     {
@@ -262,6 +264,43 @@
             }
         }//end of add flight method
 
+        //adding search flight method
+        //my plan is to use 2 ways to search the flight, one is by flight number and the other is by departure and landing airport
+        //i will make the basic structure first and i am trying to make the user interface in the program cs and the logic in the flight class
+        static void SearchFlight()
+        {
+            Console.WriteLine("\n\n----------Search Flights----------");
+
+            // this is for displaying when there are no flight available for the search
+            //
+            if (flights.Count == 0)
+            {
+                Console.WriteLine("\nNo flights available...");
+                return;
+            }
+
+            //this is the search type menu
+            Console.WriteLine("1. Search by Flight Number");
+            Console.WriteLine("2. Search by Route and Date");
+
+            Console.Write("\nChoose search type: ");
+            string choice = Console.ReadLine();
+
+            int matchCount = 0;
+
+            //user interface for search by flight number
+            if (choice == "1")
+            {
+                Console.Write("Enter flight number: ");
+                string searchNumber = Console.ReadLine().ToUpper();
+
+                foreach (Flight flight in flights)
+                {
+                  
+                }
+            }
+
+        }
 
 
     }//end of program
