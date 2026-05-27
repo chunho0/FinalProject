@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,13 +25,11 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
 
         //constructor for the user class
-        public User(string username, string password, string role, string membership)
+        public User(string username, string password, string role)
         {
             Username = username;
             Password = password;
             Role = role;
-            Membership = membership;
-
         }
 
         public void DisplayUserDetails()
@@ -73,6 +72,32 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                     Console.WriteLine("Invalid choice. Defaulting to No membership.");
                     return "null";
             }       
+        }
+
+        public static User AddAdmin(string role)
+        {
+            Console.WriteLine("\nEnter admin details:");
+            Console.Write("Username: ");
+            string username = Console.ReadLine();
+            Console.Write("Password: ");
+            string password = Console.ReadLine();
+
+            Console.WriteLine("------Confirm admin Details------");
+            Console.WriteLine($"Username: {username}");
+            Console.WriteLine($"Password: {password}");
+
+            Console.Write("Are the details correct? (Y/N): ");
+            string confirmation = Console.ReadLine().ToUpper();
+            if (confirmation == "Y")
+            {
+                Console.WriteLine("Admin Added");
+                return new User(username, password, "admin");
+            }
+            else
+            {
+                Console.WriteLine("Cancelled adding.");
+                return null;
+            }
         }
     }
 }

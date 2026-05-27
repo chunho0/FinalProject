@@ -17,7 +17,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             bool run = true;
 
             // add admin object in user class
-            User admin = new User("admin", "admin", "admin", "admin");
+            User admin = new User("admin", "admin", "admin");
             Guest test1 = new Guest("test1", "00000000", "guest", "bronze", "test001@example.com", "02000000001", "WELLINGTON");
             Guest test2 = new Guest("test2", "00000000", "guest", "silver", "test002@example.com", "02000000002", "AUCKLAND");
             Guest test3 = new Guest("test3", "00000000", "guest", "gold", "test003@example.com", "02000000003", "CHRISTCHURCH");
@@ -561,6 +561,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         foreach (User user in users)
                         {
                             Console.WriteLine($"User {userIndex + 1}:");
+                            Console.WriteLine();
                             user.DisplayUserDetails();
                             user.DisplayGuestDetails();
                             userIndex++;
@@ -579,13 +580,22 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         {
                             case "1":
                                 Console.WriteLine("\nYou have selected to add an Admin...");
-                                Console.Write("\nEnter User Name: ");
-                                string newUsername = Console.ReadLine();
-
+                                User newAdmin = User.AddAdmin("admin");//calling add admin method
+                                if (newAdmin != null)
+                                {
+                                    users.Add(newAdmin);
+                                }
                                 break;
+
                             case "2":
                                 Console.WriteLine("\nYou have selected to add a Guest...");
+                                Guest newGuest = Guest.AddGuest("guest", User.ChooseMembership());//calling addguest method and admin can choose membership
+                                if (newGuest != null)
+                                {
+                                    users.Add(newGuest);
+                                }
                                 break;
+
                             default:
                                 Console.WriteLine("\nInvalid user type option...");
                                 return;

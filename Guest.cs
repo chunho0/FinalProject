@@ -11,11 +11,12 @@ namespace FinalProject_ChunHoChoy_PeilinWu
         private string email;
         private string phonenumber;
         private string address;
+      
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
 
-        public Guest(string username, string password, string role, string membership, string email, string phoneNumber, string address) : base(username, password, role, membership)
+        public Guest(string username, string password, string role, string membership, string email, string phoneNumber, string address) : base(username, password, role)
         {
             Email = email;
             PhoneNumber = phoneNumber;
@@ -31,7 +32,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             Console.WriteLine($"Address: \t\t{Address}");
         }
 
-        public static Guest AddGuest(string role, string membership)
+        public static Guest AddGuest(string role, string membership) // this method can be used in the guset loin as well cuz role and membership can be passed as parameters without user input
         {
             Console.WriteLine("\nEnter guest details:");
             Console.Write("Username: ");
