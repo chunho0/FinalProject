@@ -139,6 +139,7 @@
                 {
                     case "1":
                         Console.WriteLine($"\nYou have selected {choice}. Add Flight...");
+                        AddFlight();//call the add flight method
                         break;
 
                     case "2":
@@ -205,8 +206,62 @@
         //creating the add flight method
         static void AddFlight()
         {
+            Console.WriteLine("\n\n---------- Add Flight ----------");
 
-        }
+            Console.Write("Flight Number: ");
+            string flightNumber = Console.ReadLine();
+
+            Console.Write("Departure Airport: ");
+            string departureAirport = Console.ReadLine().ToUpper();
+
+            Console.Write("Landing Airport: ");
+            string landingAirport = Console.ReadLine().ToUpper();
+
+            Console.Write("Departure Time (dd/mm/yyyy hh:mm): ");
+            string departureTimeInput = Console.ReadLine();
+            DateTime departureTime = DateTime.Parse(departureTimeInput);
+
+            Console.Write("Price: ");
+            double price = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("\nChoose Aircraft Model:");
+            Console.WriteLine("Modle\t\t\tAvailable Seats");
+            Console.WriteLine("1. ATR 72\t\t70 Seats");
+            Console.WriteLine("2. Airbus A320\t\t180 Seats");
+            Console.WriteLine("3. Boeing 777\t\t350 Seats");
+
+            Console.Write("Selection: ");
+            int aircraftChoice = Convert.ToInt32(Console.ReadLine());
+
+            string aircraftModel = Flight.GetAircraftModel(aircraftChoice);
+            int availableSeats = Flight.GetAvailableSeats(aircraftModel);
+            bool isLastMinute = Flight.CheckLastMinute(departureTime);
+
+            Flight newFlight = new Flight(flightNumber, departureAirport, landingAirport, departureTimeInput, price, availableSeats, isLastMinute, aircraftModel);
+
+            //asking for confirmation before adding the flight
+            Console.WriteLine("\n\n---------- Confirm Flight Details ----------");
+
+            //calling the method in the flight class to display
+            //this is exactly the part to save some coding
+            newFlight.DisplayFlightDetails();
+
+            Console.Write("\n\nConfirm Flight? (Y/N): ");
+            string confirmFlightAdd = Console.ReadLine();
+
+            if (confirmFlightAdd.ToLower() == "y")
+            {
+                flights.Add(newFlight);
+
+                Console.WriteLine("\nFlight has been added...");
+            }
+            else
+            {
+                Console.WriteLine("\nCancelled...");
+
+            }
+        }//end of add flight method
+
 
 
     }//end of program
