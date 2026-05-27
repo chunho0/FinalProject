@@ -121,7 +121,8 @@ namespace FinalProject_ChunHoChoy_PeilinWu
         {
             TimeSpan timeLeft = departureTime - DateTime.Now;
             //i will set the last minute flight 2 hours before departure
-            if(timeLeft.TotalMinutes <= 120 && timeLeft.TotalMinutes >= 0)
+            //Console.WriteLine(timeLeft); //got an error when i try to do the update and this is for debugging purpose to check the time left until departure
+            if (timeLeft.TotalMinutes <= 120 && timeLeft.TotalMinutes >= 0)
             {
                 return true;
             }

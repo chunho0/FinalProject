@@ -420,7 +420,9 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         case "3":
                             Console.Write("New Departure Time (dd/mm/yyyy hh:mm): ");
                             tempNewDepartureTime = Console.ReadLine();
-                            tempNewIsLastMinute = Flight.CheckLastMinute(Convert.ToDateTime(flight.DepartureTime));
+                            tempNewIsLastMinute = Flight.CheckLastMinute(Convert.ToDateTime(tempNewDepartureTime));
+                            //Flight.CheckLastMinute(Convert.ToDateTime(tempNewDepartureTime));
+                            //got an error when i try to do the update and this is for debugging purpose to check the time left until departure
                             break;
 
                         case "4":
