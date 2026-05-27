@@ -19,53 +19,21 @@ namespace FinalProject_ChunHoChoy_PeilinWu
         private bool isLastMinute;
         private string aircraftModel;
 
-        public string FlightNumber
-        {
-            get { return flightNumber; }
-            set { flightNumber = value; }
-        }
+        //properties for the fields
+        public string FlightNumber { get; set; }
+        public string DepartureAirport { get; set; }
 
-        public string DepartureAirport
-        {
-            get { return departureAirport; }
-            set { departureAirport = value; }
-        }
+        public string LandingAirport { get; set; }
 
-        public string LandingAirport
-        {
-            get { return landingAirport; }
-            set { landingAirport = value; }
-        }
+        public string DepartureTime { get; set; }
 
-        public string DepartureTime
-        {
-            get { return departureTime; }
-            set { departureTime = value; }
-        }
+        public double Price { get; set; }
 
-        public double Price
-        {
-            get { return price; }
-            set { price = value; }
-        }
+        public int AvailableSeats { get; set; }
 
-        public int AvailableSeats
-        {
-            get { return availableSeats; }
-            set { availableSeats = value; }
-        }
+        public bool IsLastMinute { get; set; }
 
-        public bool IsLastMinute
-        {
-            get { return isLastMinute; }
-            set { isLastMinute = value; }
-        }
-
-        public string AircraftModel
-        {
-            get { return aircraftModel; }
-            set { aircraftModel = value; }
-        }
+        public string AircraftModel { get; set; }
 
         //constructor for the flight class
         public Flight(string flightNumber, string departureAirport, string landingAirport, string departureTime, double price, int availableSeats, bool isLastMinute, string aircraftModel)
