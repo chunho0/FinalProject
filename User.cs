@@ -24,7 +24,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
 
         //constructor for the user class
-        public User(string username, string password, string role)
+        public User(string username, string password, string role, string membership)
         {
             Username = username;
             Password = password;
