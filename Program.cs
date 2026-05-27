@@ -146,6 +146,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
                     case "2":
                         Console.WriteLine($"\nYou have selected {choice}. Update Flight...");
+                        UpdateFlight();//adding update flight method
                         break;
 
                     case "3":
@@ -212,7 +213,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             Console.WriteLine("\n\n---------- Add Flight ----------");
 
             Console.Write("Flight Number: ");
-            string flightNumber = Console.ReadLine();
+            string flightNumber = Console.ReadLine().ToUpper(); ;
 
             Console.Write("Departure Airport: ");
             string departureAirport = Console.ReadLine().ToUpper();
@@ -361,6 +362,89 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             }
         }//end of search flight method
 
+        //creating update flight method
+        static void UpdateFlight()
+        {      
+            Console.WriteLine("\n\n---------- Update Flight ----------");
+
+            if (flights.Count == 0)
+            {
+                Console.WriteLine("\nNo flights available...");
+                return;
+            }
+
+            Console.Write("Enter flight number to update: ");
+            string updateFlightNumber = Console.ReadLine().ToUpper();
+
+            foreach (Flight flight in flights)
+            {
+                if (flight.FlightNumber.ToUpper() == updateFlightNumber)
+                {
+                    flight.DisplayFlightDetails();
+                    Console.WriteLine();
+                    Console.WriteLine("----------------------------------");
+                    Console.WriteLine("\nWhat do you want to update?");
+                    Console.WriteLine("1. Departure Airport");
+                    Console.WriteLine("2. Landing Airport");
+                    Console.WriteLine("3. Departure Time");
+                    Console.WriteLine("4. Price");
+                    Console.WriteLine("5. Aircraft Model");
+
+                    Console.Write("\nChoose an option: ");
+                    string updateChoice = Console.ReadLine();
+
+                    switch (updateChoice)
+                    {
+                        case "1":
+                            Console.Write("New Departure Airport: ");
+                            flight.DepartureAirport = Console.ReadLine().ToUpper();
+                            break;
+
+                        case "2":
+                            Console.Write("New Landing Airport: ");
+                            flight.LandingAirport = Console.ReadLine().ToUpper();
+                            break;
+
+                        case "3":
+                            Console.Write("New Departure Time (dd/mm/yyyy hh:mm): ");
+                            flight.DepartureTime = Console.ReadLine();
+                            break;
+
+                        case "4":
+                            Console.Write("New Price: ");
+                            flight.Price = Convert.ToDouble(Console.ReadLine());
+                            break;
+
+                        case "5":
+                            Console.WriteLine("\nChoose New Aircraft Model:");
+                            Console.WriteLine("1. ATR 72");
+                            Console.WriteLine("2. Airbus A320");
+                            Console.WriteLine("3. Boeing 777");
+
+                            Console.Write("Selection: ");
+                            int aircraftChoice = Convert.ToInt32(Console.ReadLine());
+                            break;
+
+                        default:
+                            Console.WriteLine("\nInvalid update option...");
+                            return;
+                    }
+
+                    Console.WriteLine("\nFlight updated successfully.");
+                    flight.DisplayFlightDetails();
+
+                    return;
+                }
+            }
+
+            Console.WriteLine("\nFlight not found...");
+
+            //this logic is almost the same as the search flight and add flight method
+
+
+
+         
+        }
 
     }//end of program
 }
