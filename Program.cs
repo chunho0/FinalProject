@@ -150,7 +150,8 @@
                         break;
 
                     case "4":
-                        Console.WriteLine($"\nYou have selected {choice}. Display Flight...");      
+                        Console.WriteLine($"\nYou have selected {choice}. Display Flight...");
+                        DisplayFlights();//adding displayflight method
                         break;
 
                     case "5":
@@ -179,5 +180,29 @@
 
             }
         }//end of adminmenu method
-    }
+
+        //DisplayFlights method
+        static void DisplayFlights()
+        {
+
+            int flightIndex = 1;
+
+            Console.WriteLine("\n\n----------Flight Details----------");
+
+            if (flights.Count == 0)
+            {
+                Console.WriteLine("\nNo flights available...");
+                return;
+            }//end of if statement
+            foreach (Flight flightD in flights)
+            {
+                Console.WriteLine($"\n\n----------Flight{flightIndex} Detail ----------");
+                flightD.DisplayFlightDetails();
+                flightIndex++;
+            }//end of foreach loop
+        }//end of display method
+
+
+
+    }//end of program
 }
