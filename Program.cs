@@ -159,6 +159,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
                     case "5":
                         Console.WriteLine($"\nYou have selected {choice}. Search Flight...");
+                        SearchFlight();//adding search flight method
                         break;
 
                     case "6":
@@ -296,7 +297,13 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
                 foreach (Flight flight in flights)
                 {
-                  
+                  if (flight.FlightNumber.ToUpper() == searchNumber.ToUpper())
+                    {
+                        Console.WriteLine("\nFlight found:");
+                        Console.WriteLine("\n\n---------- Flight Detail ----------");
+                        flight.DisplayFlightDetails();
+                        matchCount++;
+                    }
                 }
             }
 

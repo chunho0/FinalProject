@@ -129,10 +129,10 @@ namespace FinalProject_ChunHoChoy_PeilinWu
         }//end of CheckLastMinute method
 
         //search method by flight number
-        public bool MatchFlightNumber(string searchNumber)
-        {
-            return FlightNumber.ToUpper() == searchNumber.ToUpper();
-        }//end of MatchFlightNumber method
+        //public bool MatchFlightNumber(string searchNumber)
+        //{
+        //    return FlightNumber.ToUpper() == searchNumber.ToUpper();
+        //}//end of MatchFlightNumber method
 
     }
 }
