@@ -100,7 +100,8 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             //if any of them is wrong then show the error message and return to the menu
             foreach (User user in users)
             {
-                if (user.Username == username)//check username first
+                if (user.Username.ToUpper() == username.ToUpper())//check username first//added new thing !!! toupper is to make it more user friendly
+                    //i have noticed most of the website with the user login system will ignore the case of the user name
                 {
                     if (user.Password != password)//wrong password
                     {
