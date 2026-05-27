@@ -393,27 +393,39 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                     Console.Write("\nChoose an option: ");
                     string updateChoice = Console.ReadLine();
 
+                    //i just find that i have to add a corfirmation befor actually changing the details
+                    //because if i dont, the moment the switch case runs, the details will be changed
+                    //im planning to add some new tempNew variables to temperarily store the new details and
+                    //after the confirmation, i will assign those tempNew values to the list object
+                    string tempNewDepartureAirport = flight.DepartureAirport;
+                    string tempNewLandingAirport = flight.LandingAirport;
+                    string tempNewDepartureTime = flight.DepartureTime;
+                    double tempNewPrice = flight.Price;
+                    string tempNewAircraftModel = flight.AircraftModel;
+                    int tempNewAvailableSeats = flight.AvailableSeats;
+                    bool tempNewIsLastMinute = flight.IsLastMinute;
+
                     switch (updateChoice)
                     {
                         case "1":
                             Console.Write("New Departure Airport: ");
-                            flight.DepartureAirport = Console.ReadLine().ToUpper();
+                            tempNewDepartureAirport = Console.ReadLine().ToUpper();
                             break;
 
                         case "2":
                             Console.Write("New Landing Airport: ");
-                            flight.LandingAirport = Console.ReadLine().ToUpper();
+                            tempNewLandingAirport = Console.ReadLine().ToUpper();
                             break;
 
                         case "3":
                             Console.Write("New Departure Time (dd/mm/yyyy hh:mm): ");
-                            flight.DepartureTime = Console.ReadLine();
-                            flight.IsLastMinute = Flight.CheckLastMinute(Convert.ToDateTime(flight.DepartureTime));
+                            tempNewDepartureTime = Console.ReadLine();
+                            tempNewIsLastMinute = Flight.CheckLastMinute(Convert.ToDateTime(flight.DepartureTime));
                             break;
 
                         case "4":
                             Console.Write("New Price: ");
-                            flight.Price = Convert.ToDouble(Console.ReadLine());
+                            tempNewPrice = Convert.ToDouble(Console.ReadLine());
                             break;
 
                         case "5":
@@ -424,8 +436,8 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
                             Console.Write("Selection: ");
                             int aircraftChoice = Convert.ToInt32(Console.ReadLine());
-                            flight.AircraftModel = Flight.GetAircraftModel(aircraftChoice);
-                            flight.AvailableSeats = Flight.GetAvailableSeats(flight.AircraftModel);
+                            tempNewAircraftModel = Flight.GetAircraftModel(aircraftChoice);
+                            tempNewAvailableSeats = Flight.GetAvailableSeats(tempNewAircraftModel);
                             break;
 
                         default:
@@ -433,9 +445,38 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                             return;
                     }
 
-                    Console.WriteLine("\nFlight updated successfully.");
-                    flight.DisplayFlightDetails();
+                    //displaying the new flight details for confirmation
+                    Console.WriteLine("\n\n---------- Updated Flight Preview ----------");
 
+                    Console.WriteLine($"Flight Number: \t\t\t{flight.FlightNumber}");
+                    Console.WriteLine($"Departure Airport: \t\t{tempNewDepartureAirport}");
+                    Console.WriteLine($"Landing Airport: \t\t{tempNewLandingAirport}");
+                    Console.WriteLine($"Departure Time: \t\t{tempNewDepartureTime}");
+                    Console.WriteLine($"Price: \t\t\t\t${tempNewPrice}");
+                    Console.WriteLine($"Aircraft Model: \t\t{tempNewAircraftModel}");
+                    Console.WriteLine($"Available Seats: \t\t{tempNewAvailableSeats}");
+                    Console.WriteLine($"Last Minute Flight: \t\t{tempNewIsLastMinute}");
+
+                    Console.WriteLine("\nConfirm update? (Y/N): ");
+                    string confirmUpdate = Console.ReadLine().ToUpper();
+
+                    if (confirmUpdate == "Y")//when confirmed, assign the tempNew values to the list object
+                    {
+                        flight.DepartureAirport = tempNewDepartureAirport;
+                        flight.LandingAirport = tempNewLandingAirport;
+                        flight.DepartureTime = tempNewDepartureTime;
+                        flight.Price = tempNewPrice;
+                        flight.AircraftModel = tempNewAircraftModel;
+                        flight.AvailableSeats = tempNewAvailableSeats;
+                        flight.IsLastMinute = tempNewIsLastMinute;
+
+                        Console.WriteLine("\nFlight updated successfully.");
+                        flight.DisplayFlightDetails();
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nUpdate cancelled...");
+                    }
                     return;
                 }
             }
@@ -443,11 +484,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             Console.WriteLine("\nFlight not found...");
 
             //this logic is almost the same as the search flight and add flight method
-
-
-
-         
-        }
+        }//end of update flight method
 
     }//end of program
 }
