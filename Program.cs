@@ -568,6 +568,31 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         break;
                     case "2":
                         Console.WriteLine($"\nYou have selected {choice}. Add User...");
+                        Console.WriteLine();
+                        Console.WriteLine("\n\n---------- Add User ----------");
+                        Console.WriteLine("1. Admin");
+                        Console.WriteLine("2. Guest");
+
+                        Console.Write("Enter Choice: ");
+                        string userTypeChoice = Console.ReadLine();
+                        switch (userTypeChoice)
+                        {
+                            case "1":
+                                Console.WriteLine("\nYou have selected to add an Admin...");
+                                Console.Write("\nEnter User Name: ");
+                                string newUsername = Console.ReadLine();
+
+                                break;
+                            case "2":
+                                Console.WriteLine("\nYou have selected to add a Guest...");
+                                break;
+                            default:
+                                Console.WriteLine("\nInvalid user type option...");
+                                return;
+                        }
+
+                        
+                        Console.WriteLine("\nUser added successfully...");
                         break;
                     case "3":
                         Console.WriteLine($"\nYou have selected {choice}. Remove User...");

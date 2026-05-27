@@ -8,6 +8,9 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 {
     public class Guest : User
     {
+        private string email;
+        private string phonenumber;
+        private string address;
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public string Address { get; set; }

@@ -45,5 +45,34 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             //this method will be overridden in the guest class to display the guest details
             
         }
+
+        public static string ChooseMembership()
+        {
+            Console.WriteLine("\nChoose a membership type:");
+            Console.WriteLine("1. null");
+            Console.WriteLine("2. Bronze");
+            Console.WriteLine("3. Silver");
+            Console.WriteLine("4. Gold");
+            Console.Write("Selection: ");
+            string choice = Console.ReadLine();
+            switch (choice)
+            {
+                case "1":
+                    Console.WriteLine("No membership.");
+                    return "null";
+                case "2":
+                    Console.WriteLine("You have selected Bronze membership.");
+                    return "bronze";             
+                case "3":
+                    Console.WriteLine("You have selected Silver membership.");
+                    return "silver";
+                case "4":
+                    Console.WriteLine("You have selected Gold membership.");
+                    return "gold";
+                default:
+                    Console.WriteLine("Invalid choice. Defaulting to No membership.");
+                    return "null";
+            }       
+        }
     }
 }
