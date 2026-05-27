@@ -78,11 +78,18 @@
         static void AdminLogin()
         {
             Console.WriteLine("\n\n---------- Admin Login ----------");
+
+            //ask user for username and password(this is for the admin to login
             Console.Write("\nUsername:");
             string username = Console.ReadLine();
             Console.Write("\nPassword:");
             string password = Console.ReadLine();
 
+
+            //this is the logic for admin login
+            //my logic is to check the username first, if the username is correct then check the password
+            //if the password is correct then check the role, if the role is correct then login successful
+            //if any of them is wrong then show the error message and return to the menu
             foreach (User user in users)
             {
                 if (user.Username == username)//check username first
@@ -110,7 +117,67 @@
         //adminMenu method
         static void AdminMenu()
         {
-            Console.WriteLine("admin method");
-        }
+            bool adminRun = true;
+
+            while (adminRun)
+            {
+                Console.WriteLine("\n\n---------- Admin Menu ----------");
+                Console.WriteLine("\t\t1. Add Flight");
+                Console.WriteLine("\t\t2. Update Flight");
+                Console.WriteLine("\t\t3. Remove Flight");
+                Console.WriteLine("\t\t4. Display Flight");
+                Console.WriteLine("\t\t5. Search Flight");
+                Console.WriteLine("\t\t6. View Booking");
+                Console.WriteLine("\t\t7. Manage User Account");
+                Console.WriteLine("\t\t8. Logout");
+                Console.Write("\nChoose an option: ");
+
+                string choice = Console.ReadLine();
+
+
+                switch (choice)
+                {
+                    case "1":
+                        Console.WriteLine($"\nYou have selected {choice}. Add Flight...");
+                        break;
+
+                    case "2":
+                        Console.WriteLine($"\nYou have selected {choice}. Update Flight...");
+                        break;
+
+                    case "3":
+                        Console.WriteLine($"\nYou have selected {choice}. Remove Flight...");
+                        break;
+
+                    case "4":
+                        Console.WriteLine($"\nYou have selected {choice}. Display Flight...");      
+                        break;
+
+                    case "5":
+                        Console.WriteLine($"\nYou have selected {choice}. Search Flight...");
+                        break;
+
+                    case "6":
+                        Console.WriteLine($"\nYou have selected {choice}. View Booking...");
+                        break;
+
+                    case "7":
+                        Console.WriteLine($"\nYou have selected {choice}. Manage User Account...");
+                        break;
+
+                    case "8":
+                        Console.WriteLine($"\nYou have selected {choice}. Logout...");
+                        Console.WriteLine("Logging out...");
+                        Console.WriteLine("Logged out...");
+                        adminRun = false;
+                        break;
+
+                    default:
+                        Console.WriteLine("\nInvalid option...");
+                        break;
+                }
+
+            }
+        }//end of adminmenu method
     }
 }
