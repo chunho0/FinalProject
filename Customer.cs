@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FinalProject_ChunHoChoy_PeilinWu
 {
-    internal class Passenger
+    internal class Customer
     {
     }
 }
