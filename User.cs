@@ -14,12 +14,13 @@ namespace FinalProject_ChunHoChoy_PeilinWu
         private string username;
         private string password;
         private string role;
+        private string membership;//adding this for future use
 
         //properties for the fields
         public string Username { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }
-        
+        public string Membership { get; set; }
 
 
         //constructor for the user class
@@ -28,6 +29,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             Username = username;
             Password = password;
             Role = role;
+            Membership = membership;
 
         }
     }

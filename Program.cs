@@ -17,7 +17,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             bool run = true;
 
             // add admin object in user class
-            User admin = new User("admin", "admin", "admin");
+            User admin = new User("admin", "admin", "admin", "admin");
 
             //add object to list
             users.Add(admin);
