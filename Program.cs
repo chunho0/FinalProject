@@ -8,6 +8,8 @@ namespace FinalProject_ChunHoChoy_PeilinWu
         static List<User> users = new List<User>();
         //create a flight list
         static List<Flight> flights = new List<Flight>();
+        //create a customer list
+        static List<Customer> customer = new List<Customer>();
         
         
 
@@ -48,8 +50,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
                 Console.WriteLine("\t\t 1. Admin Login");
                 Console.WriteLine("\t\t 2. Guest Login");
-                Console.WriteLine("\t\t 3. Guest Register");
-                Console.WriteLine("\t\t 4. Exit");
+                Console.WriteLine("\t\t 3. Exit");
 
                 Console.Write("\n\nChoose an option: ");
 
@@ -64,13 +65,10 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
                     case "2":
                         Console.WriteLine($"\nYou have selected {choice}. Guest Login");
+                        DisplayCustomerMenu();
                         break;
 
                     case "3":
-                        Console.WriteLine($"\nYou have selected {choice}. Guest Register");
-                        break;
-
-                    case "4":
                         Console.WriteLine($"\nYou have selected {choice}. Exit");
                         run = false;
                         break;
@@ -622,7 +620,44 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             }
         }//end of user account manager method
 
+        //display the customer mean for login and create new account
+        public static void DisplayCustomerMenu()
+        {
+            char answer = 'y';
+            do
+            {
+                Console.WriteLine("1, Guest Login");
+                Console.WriteLine("2, Register a new account");
+                Console.WriteLine("3, Back to the login menu");
+                string option = Console.ReadLine();
+                switch (option)
+                {
+                    case "1":
+                        Console.WriteLine($"\nYou have selected {option}. Guest Login");
+                        Console.Write("Guest user name: ");
+                        string guestLogin = Console.ReadLine();
+                        Console.Write("Guest password: ");
+                        string guestPassword = Console.ReadLine();
+                        break;
 
+                    case "2":
+                        Console.WriteLine($"\nYou have selected {option}. Register a new account ");
+                        Console.Write("Please enter your user name:  ");
+                        string newGuestName = Console.ReadLine();
+                        Console.Write("Please enter your password: ");
+                        break;
+                    case "3":
+                        Console.WriteLine($"\nYou have selected {option}. back to login menu");
+                        Console.WriteLine("Exiting.........");
+                        return;
+                    default:
+                        Console.WriteLine("Please enter the correct number");
+                        break;
+                }
+                Console.WriteLine("Do you wish to continue? ");
+                answer = Convert.ToChar(Console.ReadLine());
+            } while (answer != 'y');
+        }//end of customer menu
 
 
 
