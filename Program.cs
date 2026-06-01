@@ -362,20 +362,20 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 }
                 Console.WriteLine($"\nThere are {matchingFlights.Count} matching flights available");
 
-                //display match count
-                if (matchCount == 0)
-                {
-                    Console.WriteLine("\nNo matching flight available");
+                ////display match count
+                //if (matchCount == 0)
+                //{
+                //    Console.WriteLine("\nNo matching flight available");
 
-                }
-                else if (matchCount == 1)
-                {
-                    Console.WriteLine("\nThere is 1 flight available");
-                }
-                else
-                {
-                    Console.WriteLine($"\nThere are {matchCount} flights available");
-                }
+                //}
+                //else if (matchCount == 1)
+                //{
+                //    Console.WriteLine("\nThere is 1 flight available");
+                //}
+                //else
+                //{
+                //    Console.WriteLine($"\nThere are {matchCount} flights available");
+                //}
             }
         }//end of search flight method
 
