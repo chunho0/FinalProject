@@ -675,13 +675,13 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         break;
 
                     case "2":
-                        Console.WriteLine($"\nYou have selected {option}. Register a new account ");
-                        Console.Write("Please enter your user name:  ");
-                        string newGuestName = Console.ReadLine();
-                        Console.Write("Please enter your password: ");
-                        string newPassword = Console.ReadLine();
+                        //Console.WriteLine($"\nYou have selected {option}. Register a new account ");
+                        //Console.Write("Please enter your user name:  ");
+                        //string newGuestName = Console.ReadLine();
+                        //Console.Write("Please enter your password: ");
+                        //string newPassword = Console.ReadLine();
 
-                        Guest newCustomer = Guest.AddGuest("guest","none");
+                        Guest newCustomer = Guest.AddGuest("guest","null");
                         users.Add(newCustomer);
 
                         Console.WriteLine("You have create a new account ");
