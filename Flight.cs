@@ -151,9 +151,21 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
         }//end of SearchByFlightNumber method
 
-        //public static Flight SearchByRouteAndDate()
-        //{
+        public static List<Flight> SearchByRouteAndDate(List<Flight> flights, string departureAirport, string landingAirport, DateTime searchDate)
+        {
+            List<Flight> matchingFlights = new List<Flight> ();//adding a temp list to store mathing flights
+            foreach (Flight flight in flights)
+            {
+                DateTime flightDepartureDate = Convert.ToDateTime(flight.DepartureTime);
+                if (flight.DepartureAirport.ToUpper() == departureAirport.ToUpper() &&
+                    flight.LandingAirport.ToUpper() == landingAirport.ToUpper() &&
+                    flightDepartureDate.Date == searchDate.Date)
+                {
+                    matchingFlights.Add(flight);
+                }
+            }
+            return matchingFlights;
 
-        //}
+        }
     }
 }
