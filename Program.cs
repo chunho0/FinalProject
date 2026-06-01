@@ -9,7 +9,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
         //create a flight list
         static List<Flight> flights = new List<Flight>();
         //create a customer list
-        static List<Customer> customer = new List<Customer>();
+        static List<Guest> customer = new List<Guest>();
         
         
 
@@ -638,11 +638,11 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         string guestLogin = Console.ReadLine();
                         Console.Write("Guest password: ");
                         string guestPassword = Console.ReadLine();
-                        foreach(Customer customer in customer )
+                        foreach(Guest customer in customer )
                         {
-                            if (customer.GuestUserName.ToLower() == guestLogin.ToLower() && customer.GuestPassword == guestPassword) 
+                            if (customer.GuestUserName.ToLower() == guestLogin.ToLower()) 
                             {
-                                if (customer.GuestUserName != guestLogin && customer.GuestPassword != guestPassword)//wrong password
+                                if (customer.GuestPassword != guestPassword)//wrong password
                                 {
                                     Console.WriteLine("\nWrong user name or password...");
                                     return;
@@ -652,9 +652,10 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                                     Console.WriteLine("\nUnauthorized...");
                                     return;
                                 }
-                            }
                             Console.WriteLine("Guest Login Successful........");
                             GuestMenu();
+                            }
+                           
                         }
                         Console.WriteLine("\n Guest Username not found...");//this is for the wrong username
                         break;
@@ -666,7 +667,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         Console.Write("Please enter your password: ");
                         string newPassword = Console.ReadLine();
 
-                        Customer newCustomer = new Customer(newGuestName,newPassword, "Guest");
+                        Guest newCustomer = new Guest(newGuestName,newPassword,"Guest", "Guest", "Guest", "Guest", "Guest");
                         customer.Add(newCustomer);
 
                         Console.WriteLine("You have create a new account ");
