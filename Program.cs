@@ -740,23 +740,23 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         break;
                     case "4":
                         Console.WriteLine($"\nYou have selected {choice}. Modify Flight Booking...");
-                        DisplayFlights();//adding displayflight method
+                        
                         break;
                     case "5":
                         Console.WriteLine($"\nYou have selected {choice}. Remove Flight Booking...");
-                        DisplayFlights();//adding displayflight method
+                        
                         break;
                     case "6":
                         Console.WriteLine($"\nYou have selected {choice}. View Flight Booking...");
-                        DisplayFlights();//adding displayflight method
+                        
                         break;
                     case "7":
                         Console.WriteLine($"\nYou have selected {choice}. Display Guest Account...");
-                        DisplayFlights();//adding displayflight method
+                        
                         break;
                     case "8":
                         Console.WriteLine($"\nYou have selected {choice}. Modify Guest Account...");
-                        DisplayFlights();//adding displayflight method
+                        
                         break;
 
                     case "9":
