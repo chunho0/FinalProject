@@ -646,13 +646,14 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         string guestLogin = Console.ReadLine();
                         Console.Write("Guest password: ");
                         string guestPassword = Console.ReadLine();
+
                         foreach(Guest customer in customer )
                         {
                             if (customer.GuestUserName.ToLower() == guestLogin.ToLower()) 
                             {
                                 if (customer.GuestPassword != guestPassword)//wrong password
                                 {
-                                    Console.WriteLine("\nWrong user name or password...");
+                                    Console.WriteLine("\nWrong password...");
                                     return;
                                 }
                                 if (customer.Role != "Guest")//wrong role
