@@ -684,9 +684,16 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         //string newPassword = Console.ReadLine();
 
                         Guest newCustomer = Guest.AddGuest("guest","null");
+                        foreach (User user in users)
                         users.Add(newCustomer);
+                        
+                        if (newCustomer.Username == users. )
+                        {
+                            Console.WriteLine("You already have an account.");
+                        }
+                        Console.WriteLine("You have create a new account. ");
 
-                        Console.WriteLine("You have create a new account ");
+
                         break;
                     case "3":
                         Console.WriteLine($"\nYou have selected {option}. back to login menu");
@@ -701,7 +708,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             } while (answer != 'n');
         }//end of customer menu
         //guest menu
-        public static void GuestMenu()
+        public static void GuestMenu(string userName)
         {
             bool guestRun = true;
 
@@ -752,7 +759,10 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         break;
                     case "7":
                         Console.WriteLine($"\nYou have selected {choice}. Display Guest Account...");
-                        
+                         foreach(User user in users)
+                        {
+                            user.DisplayGuestDetails();
+                        }
                         break;
                     case "8":
                         Console.WriteLine($"\nYou have selected {choice}. Modify Guest Account...");
