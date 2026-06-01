@@ -151,9 +151,9 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
         }//end of SearchByFlightNumber method
 
-        public static Flight SearchByRouteAndDate()
-        {
+        //public static Flight SearchByRouteAndDate()
+        //{
 
-        }
+        //}
     }
 }
