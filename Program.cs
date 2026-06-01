@@ -696,10 +696,21 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         //string newGuestName = Console.ReadLine();
                         //Console.Write("Please enter your password: ");
                         //string newPassword = Console.ReadLine();
+                        Guest newCustomer = Guest.AddGuest("guest", "bronze");
 
-                        
-                        
-                        
+                        foreach (User user in users)
+                        {
+                            if (user.Username.ToLower() == newCustomer.Username.ToLower())
+                            {
+                                Console.WriteLine("\nUsername already exists...");
+                                return;
+                            }
+                        }
+
+                        users.Add(newCustomer);
+
+
+
 
 
                         break;
