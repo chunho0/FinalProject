@@ -646,7 +646,12 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         string guestLogin = Console.ReadLine();
                         Console.Write("Guest password: ");
                         string guestPassword = Console.ReadLine();
+
                         foreach(User user in users )
+
+                            
+                        foreach(Guest customer in users )
+
                         {
                             if (user.Username.ToLower() == guestLogin.ToLower()) 
                             {
