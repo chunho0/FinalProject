@@ -696,7 +696,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         //string newGuestName = Console.ReadLine();
                         //Console.Write("Please enter your password: ");
                         //string newPassword = Console.ReadLine();
-                        Guest newCustomer = Guest.AddGuest("guest", "bronze");
+                        Guest newCustomer = Guest.AddGuest("guest", "null");
 
                         foreach (User user in users)
                         {
