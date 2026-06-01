@@ -26,9 +26,9 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             //added 3 test users for testing purpose
             //add object to list
             users.Add(admin);
-            users.Add(test1);
-            users.Add(test2);
-            users.Add(test3);
+            customer.Add(test1);
+            customer.Add(test2);
+            customer.Add(test3);
 
             //adding 3 demo flights
             //this is for testing purposes
