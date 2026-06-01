@@ -652,7 +652,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                             {
                                 if (customer.GuestPassword != guestPassword)//wrong password
                                 {
-                                    Console.WriteLine("\nWrong user name or password...");
+                                    Console.WriteLine("\nWrong password...");
                                     return;
                                 }
                                 if (customer.Role.ToLower() != "guest")//wrong role
