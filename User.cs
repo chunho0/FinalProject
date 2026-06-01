@@ -97,6 +97,12 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 Console.WriteLine("Cancelled adding.");
                 return null;
             }
-        }
+        }//end of addAdmin method
+
+
+
+
+
     }
+
 }

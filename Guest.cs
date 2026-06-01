@@ -78,6 +78,6 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 return null;
             }
             
-        }
+        }//end of AddGuest method
     }
 }
