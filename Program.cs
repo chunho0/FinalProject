@@ -704,7 +704,12 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 Console.WriteLine("\t1. Display Flight");
                 Console.WriteLine("\t2. Search Flight");
                 Console.WriteLine("\t3. Booking Flight");
-                Console.WriteLine("\t4. Logout");
+                Console.WriteLine("\t4. Modify Flight Booking");
+                Console.WriteLine("\t5. Remove Flight Booking");
+                Console.WriteLine("\t6. View Flight Booking");
+                Console.WriteLine("\t7. Display Guest Account");
+                Console.WriteLine("\t8. Modify Guest Account");
+                Console.WriteLine("\t9. Logout");
                 Console.Write("\nChoose an option: ");
 
                 string choice = Console.ReadLine();
@@ -724,11 +729,30 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         break;
 
                     case "3":
-                        Console.WriteLine($"\nYou have selected {choice}. View Booking...");
+                        Console.WriteLine($"\nYou have selected {choice}. Booking Flight...");
+                        break;
+                    case "4":
+                        Console.WriteLine($"\nYou have selected {choice}. Modify Flight Booking...");
+                        DisplayFlights();//adding displayflight method
+                        break;
+                    case "5":
+                        Console.WriteLine($"\nYou have selected {choice}. Remove Flight Booking...");
+                        DisplayFlights();//adding displayflight method
+                        break;
+                    case "6":
+                        Console.WriteLine($"\nYou have selected {choice}. View Flight Booking...");
+                        DisplayFlights();//adding displayflight method
+                        break;
+                    case "7":
+                        Console.WriteLine($"\nYou have selected {choice}. Display Guest Account...");
+                        DisplayFlights();//adding displayflight method
+                        break;
+                    case "8":
+                        Console.WriteLine($"\nYou have selected {choice}. Modify Guest Account...");
+                        DisplayFlights();//adding displayflight method
                         break;
 
-
-                    case "4":
+                    case "9":
                         Console.WriteLine($"\nYou have selected {choice}. Logout...");
                         Console.WriteLine("Logging out...");
                         Console.WriteLine("Logged out...");
