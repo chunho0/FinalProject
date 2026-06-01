@@ -651,6 +651,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                             Console.WriteLine("Guest Login Successful........");
                             GuestMenu();
                         }
+                        Console.WriteLine("\n Guest Username not found...");//this is for the wrong username
                         break;
 
                     case "2":
@@ -673,7 +674,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         Console.WriteLine("Please enter the correct number");
                         break;
                 }
-                Console.WriteLine("Do you wish to continue? ");
+                Console.WriteLine("Do you wish to continue? (y/n)");
                 answer = Convert.ToChar(Console.ReadLine());
             } while (answer != 'n');
         }//end of customer menu
