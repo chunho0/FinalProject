@@ -699,16 +699,14 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
                         Guest newCustomer = Guest.AddGuest("guest","null");
                         foreach (User user in users)
+                        users.Add(newCustomer);
+                        
+                        if (newCustomer.Username == users. )
                         {
-                            users.Add(newCustomer);
-
-                            if (newCustomer.Username == user.Username)
-                            {
-                                Console.WriteLine("You already have an account.");
-                            }
-
-                            Console.WriteLine("You have create a new account. ");
+                            Console.WriteLine("You already have an account.");
                         }
+                        Console.WriteLine("You have create a new account. ");
+
 
                         break;
                     case "3":
