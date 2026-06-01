@@ -641,32 +641,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 switch (option)
                 {
                     case "1":
-                        Console.WriteLine($"\nYou have selected {option}. Guest Login");
-                        Console.Write("Guest user name: ");
-                        string guestLogin = Console.ReadLine();
-                        Console.Write("Guest password: ");
-                        string guestPassword = Console.ReadLine();
-
-                        foreach(Guest customer in customer )
-                        {
-                            if (customer.GuestUserName.ToLower() == guestLogin.ToLower()) 
-                            {
-                                if (customer.GuestPassword != guestPassword)//wrong password
-                                {
-                                    Console.WriteLine("\nWrong password...");
-                                    return;
-                                }
-                                if (customer.Role.ToLower() != "guest")//wrong role
-                                {
-                                    Console.WriteLine("\nUnauthorized...");
-                                    return;
-                                }
-                            Console.WriteLine("Guest Login Successful........");
-                            GuestMenu();
-                            }
-                           
-                        }
-                        Console.WriteLine("\n Guest Username not found...");//this is for the wrong username
+                        
                         break;
 
                     case "2":
