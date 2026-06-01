@@ -9,22 +9,17 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 {
     public class Customer
     {
-        private string firstName;
-        private string lastName;
-        private int phoneNumber;
-        private string email;
+        private string guestUserName;
+        private string guestPassword;
 
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public int PhoneNumber { get; set; }
-        public string Email { get; set; }
+        public string GuestUserName { get; set; }
+        public string GuestPassword { get; set; }
 
-        public Customer( string fn, string ln, int pn, string eml) 
+        public Customer( string gusetN,string guestPw) 
         { 
-            FirstName = fn;
-            LastName = ln;
-            PhoneNumber = pn;
-            Email = eml;
+            GuestUserName = gusetN;
+            GuestPassword = guestPw;
+
         }
         
        
