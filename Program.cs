@@ -303,31 +303,43 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 Console.Write("Enter flight number: ");
                 string searchNumber = Console.ReadLine().ToUpper();
 
-                //use foreach loop to search the flight in the flight list
-                foreach (Flight flight in flights)
-                {
-                  if (flight.FlightNumber.ToUpper() == searchNumber.ToUpper())
-                    {
-                        Console.WriteLine();
-                        Console.WriteLine($"\n\n----------Flight Detail ----------");
-                        flight.DisplayFlightDetails();
-                        matchCount++;
-                    }
-                }
-                //display match count
-                if (matchCount == 0)
-                {
-                    Console.WriteLine("\nNo matching flight available");
+                ////use foreach loop to search the flight in the flight list
+                //foreach (Flight flight in flights)
+                //{
+                //  if (flight.FlightNumber.ToUpper() == searchNumber.ToUpper())
+                //    {
+                //        Console.WriteLine();
+                //        Console.WriteLine($"\n\n----------Flight Detail ----------");
+                //        flight.DisplayFlightDetails();
+                //        matchCount++;
+                //    }
+                //}
+                //use method from the class
+                Flight foundFlight = Flight.SearchByFlightNumber(flights, searchNumber);
 
-                }
-                else if (matchCount == 1)
+                if(foundFlight != null)
                 {
-                    Console.WriteLine("\nThere is 1 flight available");
+                    foundFlight.DisplayFlightDetails();
                 }
                 else
                 {
-                    Console.WriteLine($"\nThere are {matchCount} flights available");
+                    Console.WriteLine("\nNo matching flight available");
                 }
+
+                ////display match count
+                //if (matchCount == 0)
+                //{
+                //    Console.WriteLine("\nNo matching flight available");
+
+                //}
+                //else if (matchCount == 1)
+                //{
+                //    Console.WriteLine("\nThere is 1 flight available");
+                //}
+                //else
+                //{
+                //    Console.WriteLine($"\nThere are {matchCount} flights available");
+                //}
             }
             else if (choice == "2")
             {
@@ -340,20 +352,16 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 Console.WriteLine("\nEnter departure date (dd/mm/yyyy): ");
                 DateTime searchDate = Convert.ToDateTime(Console.ReadLine());
 
+                List<Flight> matchingFlights = Flight.SearchByRouteAndDate(flights, searchDepartureAirport, searchLandingAirport, searchDate);
+                //add search to the search temp list
+
                 //use foreach loop to search the flight in the flight list
-                foreach (Flight flight in flights)
+                foreach (Flight flight in matchingFlights)
                 {
-                    DateTime flightDepartureDate = Convert.ToDateTime(flight.DepartureTime);//converting the departuretime in the list from string to DateTime datatype
-                    if (flight.DepartureAirport.ToUpper() == searchDepartureAirport.ToUpper() &&
-                        flight.LandingAirport.ToUpper() == searchLandingAirport.ToUpper() &&
-                        flightDepartureDate.Date == searchDate.Date)//only need to compare the date part because this is accoring to the user habbit
-                    {
-                        Console.WriteLine();
-                        Console.WriteLine($"\n\n----------Flight Detail ----------");
-                        flight.DisplayFlightDetails();
-                        matchCount++;
-                    }
+                    flight.DisplayFlightDetails();
                 }
+                Console.WriteLine($"\nThere are {matchingFlights.Count} matching flights available");
+
                 //display match count
                 if (matchCount == 0)
                 {
