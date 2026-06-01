@@ -638,6 +638,19 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         string guestLogin = Console.ReadLine();
                         Console.Write("Guest password: ");
                         string guestPassword = Console.ReadLine();
+                        foreach(Customer customer in customer )
+                        {
+                            if (customer.GuestUserName == guestLogin & customer.GuestPassword == guestPassword) 
+                            {
+                                if (customer.GuestUserName != guestLogin & customer.GuestPassword != guestPassword)//wrong password
+                                {
+                                    Console.WriteLine("\nWrong user name or password...");
+                                    return;
+                                }
+                            }
+                            Console.WriteLine("Guest Login Successful........");
+                            GuestMenu();
+                        }
                         break;
 
                     case "2":
@@ -645,6 +658,12 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         Console.Write("Please enter your user name:  ");
                         string newGuestName = Console.ReadLine();
                         Console.Write("Please enter your password: ");
+                        string newPassword = Console.ReadLine();
+
+                        Customer newCustomer = new Customer(newGuestName,newPassword);
+                        customer.Add(newCustomer);
+
+                        Console.WriteLine("You have create a new account ");
                         break;
                     case "3":
                         Console.WriteLine($"\nYou have selected {option}. back to login menu");
@@ -656,10 +675,57 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 }
                 Console.WriteLine("Do you wish to continue? ");
                 answer = Convert.ToChar(Console.ReadLine());
-            } while (answer != 'y');
+            } while (answer != 'n');
         }//end of customer menu
+        //guest menu
+        public static void GuestMenu()
+        {
+            bool guestRun = true;
+
+            while (guestRun)
+            {
+                Console.WriteLine("\n\n---------- Guest Menu ----------");
+                Console.WriteLine("\t1. Display Flight");
+                Console.WriteLine("\t2. Search Flight");
+                Console.WriteLine("\t3. Booking Flight");
+                Console.WriteLine("\t4. Logout");
+                Console.Write("\nChoose an option: ");
+
+                string choice = Console.ReadLine();
 
 
+                switch (choice)
+                {
+
+                    case "1":
+                        Console.WriteLine($"\nYou have selected {choice}. Display Flight...");
+                        DisplayFlights();//adding displayflight method
+                        break;
+
+                    case "2":
+                        Console.WriteLine($"\nYou have selected {choice}. Search Flight...");
+                        SearchFlight();//adding search flight method
+                        break;
+
+                    case "3":
+                        Console.WriteLine($"\nYou have selected {choice}. View Booking...");
+                        break;
+
+
+                    case "4":
+                        Console.WriteLine($"\nYou have selected {choice}. Logout...");
+                        Console.WriteLine("Logging out...");
+                        Console.WriteLine("Logged out...");
+                        Environment.Exit(0);
+                        break;
+
+                    default:
+                        Console.WriteLine("\nInvalid option...");
+                        break;
+                }
+
+            }
+        }//end of guest menu
 
 
 
