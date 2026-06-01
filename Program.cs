@@ -666,7 +666,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         Console.Write("Please enter your password: ");
                         string newPassword = Console.ReadLine();
 
-                        Customer newCustomer = new Customer(newGuestName,newPassword);
+                        Customer newCustomer = new Customer(newGuestName,newPassword, "Guest");
                         customer.Add(newCustomer);
 
                         Console.WriteLine("You have create a new account ");
