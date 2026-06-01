@@ -656,38 +656,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 {
                     case "1":
 
-                        Console.WriteLine($"\nYou have selected {option}. Guest Login");
-
-                        Console.Write("Guest user name: ");
-                        string guestLogin = Console.ReadLine();
-
-                        Console.Write("Guest password: ");
-                        string guestPassword = Console.ReadLine();
-
-
-                        foreach (User user in users)
-                        {
-                            if (user.Username.ToLower() == guestLogin.ToLower())
-                            {
-                                if (user.Password != guestPassword)
-                                {
-                                    Console.WriteLine("\nWrong password...");
-                                    return;
-                                }
-
-                                if (user.Role.ToLower() != "guest")
-                                {
-                                    Console.WriteLine("\nUnauthorized...");
-                                    return;
-                                }
-
-                                Console.WriteLine("\nGuest Login Successful........");
-                                GuestMenu();
-                                return;
-                            }
-                        }
-
-                        Console.WriteLine("\nGuest Username not found...");
+                       
                         break;
 
                     case "2":
@@ -697,16 +666,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         //Console.Write("Please enter your password: ");
                         //string newPassword = Console.ReadLine();
 
-                        Guest newCustomer = Guest.AddGuest("guest","null");
-                        foreach (User user in users)
-                        { 
-                            if (user.Username.ToLower() == newCustomer.Username.ToLower())
-                            {
-                                Console.WriteLine("\nUsername already exists...");
-                                return;
-                            }
-                        }
-                        users.Add(newCustomer);
+                        
                         
                         
 
