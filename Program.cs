@@ -775,7 +775,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         break;
                     case "7":
                         Console.WriteLine($"\nYou have selected {choice}. Display Guest Account...");
-                         foreach(User user in users)
+                         foreach(User user in users)//display the guest account details
                         {
                             user.DisplayGuestDetails();
                         }
