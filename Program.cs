@@ -295,7 +295,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             Console.Write("\nChoose search type: ");
             string choice = Console.ReadLine();
 
-            int matchCount = 0;
+            //int matchCount = 0;
 
             //user interface for search by flight number
             if (choice == "1")
@@ -359,8 +359,22 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 foreach (Flight flight in matchingFlights)
                 {
                     flight.DisplayFlightDetails();
+                    if (matchingFlights.Count == 0)
+                    {
+                        Console.WriteLine("\nNo matching flight available");
+                    }
+                    else if (matchingFlights.Count == 1)
+                    {
+                        Console.WriteLine("\nThere is 1 matching flight available");
+
+                    }
+                    else
+                    {
+                        Console.WriteLine($"\nThere are {matchingFlights.Count} matching flights available");
+                    }
                 }
-                Console.WriteLine($"\nThere are {matchingFlights.Count} matching flights available");
+                
+                
 
                 ////display match count
                 //if (matchCount == 0)
