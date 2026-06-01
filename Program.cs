@@ -134,7 +134,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 Console.WriteLine("\t3. Remove Flight");
                 Console.WriteLine("\t4. Display Flight");
                 Console.WriteLine("\t5. Search Flight");
-                Console.WriteLine("\t6. View Booking");
+                Console.WriteLine("\t6. Booking Management");
                 Console.WriteLine("\t7. Manage User Account");
                 Console.WriteLine("\t8. Logout");
                 Console.Write("\nChoose an option: ");
@@ -170,7 +170,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         break;
 
                     case "6":
-                        Console.WriteLine($"\nYou have selected {choice}. View Booking...");
+                        Console.WriteLine($"\nYou have selected {choice}. Booking Management...");
                         break;
 
                     case "7":

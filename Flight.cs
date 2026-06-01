@@ -135,5 +135,25 @@ namespace FinalProject_ChunHoChoy_PeilinWu
         //    return FlightNumber.ToUpper() == searchNumber.ToUpper();
         //}//end of MatchFlightNumber method
 
+
+        public static Flight SearchByFlightNumber(List<Flight> flights, string searchNumber)//chaing the search method to
+            //flight class cuz this will be used in many menus and it can be called several times
+        {
+            foreach (Flight flight in flights)
+            {
+                if (flight.FlightNumber.ToUpper() == searchNumber.ToUpper())
+                {
+                    return flight;
+                }
+            }
+            return null;//if no flight is found then return null
+
+
+        }//end of SearchByFlightNumber method
+
+        public static Flight SearchByRouteAndDate()
+        {
+
+        }
     }
 }
