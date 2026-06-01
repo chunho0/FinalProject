@@ -20,8 +20,8 @@ namespace FinalProject_ChunHoChoy_PeilinWu
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
         public string Membership { get; set; }
-        public string GuestUserName { get; set; }
-        public string GuestPassword { get; set; }
+        //public string GuestUserName { get; set; }
+        //public string GuestPassword { get; set; }
 
         public Guest(string username, string password, string role, string membership, string email, string phoneNumber, string address) : base(username, password, role)
         {
@@ -29,8 +29,8 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             PhoneNumber = phoneNumber;
             Address = address;
             Membership = membership;
-            GuestUserName = username;
-            GuestPassword = password;
+            //GuestUserName = username;
+            //GuestPassword = password;
         }
 
 
