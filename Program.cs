@@ -642,37 +642,30 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 {
                     case "1":
                         Console.WriteLine($"\nYou have selected {option}. Guest Login");
-
                         Console.Write("Guest user name: ");
                         string guestLogin = Console.ReadLine();
-
                         Console.Write("Guest password: ");
                         string guestPassword = Console.ReadLine();
-
-
-                        foreach (User user in users)
+                        foreach(Guest customer in customer )
                         {
-                            if (user.Username.ToLower() == guestLogin.ToLower())
+                            if (customer.GuestUserName.ToLower() == guestLogin.ToLower()) 
                             {
-                                if (user.Password != guestPassword)
+                                if (customer.GuestPassword != guestPassword)//wrong password
                                 {
                                     Console.WriteLine("\nWrong password...");
                                     return;
                                 }
-
-                                if (user.Role.ToLower() != "guest")
+                                if (customer.Role.ToLower() != "guest")//wrong role
                                 {
                                     Console.WriteLine("\nUnauthorized...");
                                     return;
                                 }
-
-                                Console.WriteLine("\nGuest Login Successful........");
-                                GuestMenu();
-                                return;
+                            Console.WriteLine("Guest Login Successful........");
+                            GuestMenu();
                             }
+                           
                         }
-
-                        Console.WriteLine("\nGuest Username not found...");
+                        Console.WriteLine("\n Guest Username not found...");//this is for the wrong username
                         break;
 
                     case "2":
