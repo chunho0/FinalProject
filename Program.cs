@@ -655,7 +655,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                                     Console.WriteLine("\nWrong user name or password...");
                                     return;
                                 }
-                                if (customer.Role != "Guest")//wrong role
+                                if (customer.Role.ToLower() != "guest")//wrong role
                                 {
                                     Console.WriteLine("\nUnauthorized...");
                                     return;
