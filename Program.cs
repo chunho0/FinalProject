@@ -642,35 +642,36 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 {
                     case "1":
                         Console.WriteLine($"\nYou have selected {option}. Guest Login");
+
                         Console.Write("Guest user name: ");
                         string guestLogin = Console.ReadLine();
+
                         Console.Write("Guest password: ");
                         string guestPassword = Console.ReadLine();
 
-                        foreach(User user in users )
-
-                            
-                        foreach(Guest customer in users )
-
+                        foreach (User user in users)
                         {
-                            if (user.Username.ToLower() == guestLogin.ToLower()) 
+                            if (user.Username.ToLower() == guestLogin.ToLower())
                             {
-                                if (user.Password != guestPassword)//wrong password
+                                if (user.Password != guestPassword)
                                 {
                                     Console.WriteLine("\nWrong password...");
                                     return;
                                 }
-                                if (user.Role.ToLower() != "guest")//wrong role
+
+                                if (user.Role.ToLower() != "guest")
                                 {
                                     Console.WriteLine("\nUnauthorized...");
                                     return;
                                 }
-                            Console.WriteLine("Guest Login Successful........");
-                            GuestMenu();
+
+                                Console.WriteLine("\nGuest Login Successful........");
+                                GuestMenu();
+                                return;
                             }
-                           
                         }
-                        Console.WriteLine("\n Guest Username not found...");//this is for the wrong username
+
+                        Console.WriteLine("\nGuest Username not found...");
                         break;
 
                     case "2":
