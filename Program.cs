@@ -895,6 +895,15 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             string newbookingDate = Console.ReadLine();
             Console.Write("Enter your name: ");
             string newpassName = Console.ReadLine();
+            if (flightFind.AvailableSeats <= 0)//for making sure there are still remaining seats availivale before actually booking -PWUUUUUUUUUUUUU
+            {
+                Console.WriteLine("\nNo seats available for this flight...");
+                return;
+            }
+
+            flightFind.AvailableSeats--; // adding real world logic, after booking, the available seats will need to reduce -PWUUUUUUUUUUUUU
+
+
             Booking newbookList = new Booking(newbookingDate, newpassName,flightFind);
 
             bookList.Add(newbookList);
