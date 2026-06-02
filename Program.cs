@@ -173,7 +173,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
                     case "6":
                         Console.WriteLine($"\nYou have selected {choice}. Booking Management...");
-                        BookingFlight();
+                        BookingMenu();
                         break;
 
                     case "7":
@@ -960,7 +960,8 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
                 }
         }//end of modify booking
-
+        
+        //create the remove booking method
         public static void RemoveBooking()
         {
             Console.WriteLine("\n\n---------- Remove Booking ----------");
@@ -994,7 +995,64 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 }
             }
             Console.WriteLine("\nBooking not found...");
-        }
+        }//end of remove booking
+
+        //create the booking menu
+        public static void BookingMenu()
+        {
+            bool guestRun = true;
+
+            while (guestRun)
+            {
+                Console.WriteLine("\n\n---------- Booking Menu ----------");
+                Console.WriteLine("\t1. Booking Flight");
+                Console.WriteLine("\t2. Modify Flight Booking");
+                Console.WriteLine("\t3. Remove Flight Booking");
+                Console.WriteLine("\t4. View Flight Booking");
+                Console.WriteLine("\t5. Logout");
+                Console.Write("\nChoose an option: ");
+
+                string choice = Console.ReadLine();
+
+
+                switch (choice)
+                {
+                    case "1":
+                        Console.WriteLine($"\nYou have selected {choice}. Booking Flight...");
+                        BookingFlight();
+                        break;
+
+                    case "2":
+                        Console.WriteLine($"\nYou have selected {choice}. Modify Flight Booking...");
+                        ModifyBooking();
+                        break;
+
+                    case "3":
+                        Console.WriteLine($"\nYou have selected {choice}. Remove Flight Booking...");
+                        RemoveBooking();
+                        break;
+
+                    case "4":
+                        Console.WriteLine($"\nYou have selected {choice}. View Flight Booking...");
+                        foreach (Booking booking in bookList)
+                        {
+                            booking.BookingManagement();
+                        }
+                        break;
+
+                    case "5":
+                        Console.WriteLine($"\nYou have selected {choice}. Logout...");
+                        Console.WriteLine("Logging out...");
+                        Console.WriteLine("Logged out...");
+                        return;
+
+                    default:
+                        Console.WriteLine("\nInvalid option...");
+                        break;
+                }
+
+            }
+        }//end of booking menu
 
     }//end of program
 }
