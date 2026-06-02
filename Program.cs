@@ -938,11 +938,11 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         PassNameFind.PassengerName = Console.ReadLine();
                         Console.WriteLine("Passenger name updated successful!");
                         break;
-                    case "2":
-                        Console.Write("Enter the new Available Seats: \n");
-                         PassNameFind.BookedFlight.AvailableSeats = Convert.ToInt32( Console.ReadLine());
-                        Console.WriteLine("New available seats updated successful!");
-                        break;
+                    //case "2":
+                    //    Console.Write("Enter the new Available Seats: \n");
+                    //     PassNameFind.BookedFlight.AvailableSeats = Convert.ToInt32( Console.ReadLine());
+                    //    Console.WriteLine("New available seats updated successful!");
+                    //    break;
                     
                     default:
                         Console.WriteLine("Worng option....Please select the correct number.");
