@@ -891,9 +891,9 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 Console.WriteLine("Flight number is not found");
                 return;
             }
-            Console.Write("Enter the date that you want to book: ");
-            string newbookingDate = Console.ReadLine();
-            Console.Write("Enter your name: ");
+
+            string newbookingDate = DateTime.Now.ToString("dd/MM/yyyy");
+            Console.Write("Enter passenger name: ");
             string newpassName = Console.ReadLine();
             if (flightFind.AvailableSeats <= 0)//for making sure there are still remaining seats availivale before actually booking -PWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
             {
@@ -913,16 +913,16 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
         public static void ModifyBooking()
         {
-            Console.WriteLine("Please enter your user name ");
+            Console.WriteLine("Please enter your passenger name ");
             string findPassName = Console.ReadLine();
             Booking PassNameFind = bookList.Find(b => b.PassengerName.Equals(findPassName, StringComparison.OrdinalIgnoreCase));
             if (PassNameFind == null)
             {
-                Console.WriteLine("User name is not found");
+                Console.WriteLine("passenger name is not found");
                 return;
             }
 
-            Console.WriteLine($"Account {findPassName} has been found ");
+            Console.WriteLine($"Passenger {findPassName} has been found ");
 
             
                 Console.WriteLine("\tWhich detail do you want to modify?");
