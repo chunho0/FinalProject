@@ -22,6 +22,8 @@ namespace FinalProject_ChunHoChoy_PeilinWu
         public string Password { get; set; }
         public string Role { get; set; }
         public string Membership { get; set; }
+        //for the user who is login 
+        public static User userLoggedIn { get; set; } = null;
 
 
         //constructor for the user class

@@ -11,7 +11,8 @@ namespace FinalProject_ChunHoChoy_PeilinWu
         static List<Flight> flights = new List<Flight>();
         //create a customer list
         //static List<Guest> customer = new List<Guest>();
-        
+        //create a booking list
+        static List<Booking> bookList = new List<Booking>();
         
 
         static void Main(string[] args)
@@ -663,7 +664,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
                         Console.Write("Guest password: ");
                         string guestPassword = Console.ReadLine();
-
+                        
 
                         foreach (User user in users)
                         {
@@ -680,7 +681,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                                     Console.WriteLine("\nUnauthorized...");
                                     return;
                                 }
-
+                                User.userLoggedIn = user;
                                 Console.WriteLine("\nGuest Login Successful........");
                                 GuestMenu(user.Username);
                                 return;
@@ -709,10 +710,6 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         }
 
                         users.Add(newCustomer);
-
-
-
-
 
                         break;
                     case "3":
@@ -779,11 +776,14 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         break;
                     case "7":
                         Console.WriteLine($"\nYou have selected {choice}. Display Guest Account...");
-                         foreach(User user in users)//display the guest account details
+                         if(User.userLoggedIn != null)//display the guest account details
                         {
-                            user.DisplayGuestDetails();
-                            Console.WriteLine();
+                            Console.WriteLine("\n*********Account Detail**********");
+
+                            User.userLoggedIn.DisplayUserDetails();
+                            User.userLoggedIn.DisplayGuestDetails();
                         }
+                       
                         break;
                     case "8":
                         Console.WriteLine($"\nYou have selected {choice}. Modify Guest Account...");

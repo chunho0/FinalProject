@@ -6,7 +6,24 @@ using System.Threading.Tasks;
 
 namespace FinalProject_ChunHoChoy_PeilinWu
 {
-    internal class Booking
+    public class Booking
     {
+        public string BookingFlightID;
+        public string BookingDate;
+        public string PassengerName;
+        public string BookedFlight;
+        public Booking(string bFlightID, string bDate, string passName, string bookedf)
+        {  
+            BookingFlightID = bFlightID;
+            BookingDate = bDate;
+            PassengerName = passName;
+            BookedFlight = bookedf;
+
+        }
+   
+    
+    
     }
+
+    
 }
