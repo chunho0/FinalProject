@@ -14,17 +14,19 @@ namespace FinalProject_ChunHoChoy_PeilinWu
         
         public string BookingDate { get; set; }
         public string PassengerName { get; set; }
-        
+        public string UserId {  get; set; }
 
         public Flight BookedFlight;
+        
         
         public Booking(string bDate, string passName, Flight bookedF)
         {  
             
             BookingDate = bDate;
             PassengerName = passName;
-            
-            
+            UserId = User.userLoggedIn?.Username;
+
+
             if (bookedF != null)
             {
                 this.BookedFlight = new Flight()

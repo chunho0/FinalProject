@@ -683,6 +683,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                                     Console.WriteLine("\nUnauthorized...");
                                     return;
                                 }
+                                
                                 User.userLoggedIn = user;
                                 Console.WriteLine("\nGuest Login Successful........");
                                 GuestMenu(user.Username);
@@ -776,18 +777,26 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         break;
                     case "6":
                         Console.WriteLine($"\nYou have selected {choice}. View Flight Booking...");
-                        foreach (Booking booking in bookList)
-                        {   
-                            
-                            booking.bookingDetail();
+                        foreach(Booking booking in bookList)   
+                        {
+                            if (User.userLoggedIn != null)
+                            {
+                                string loginUser = User.userLoggedIn.Username;
+                                string bookingOwner = booking.UserId;
 
-                             
+                                if (bookingOwner.Equals(loginUser, StringComparison.OrdinalIgnoreCase))
+                                {
+                                    booking.bookingDetail();
+                                }
+                            }
+                           
+
                         }
 
                         break;
                     case "7":
                         Console.WriteLine($"\nYou have selected {choice}. Display Guest Account...");
-                         if(User.userLoggedIn != null)//display the guest account details
+                        if(User.userLoggedIn != null)//display the guest account details
                         {
                             Console.WriteLine("\n*********Account Detail**********");
 
