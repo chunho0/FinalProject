@@ -361,20 +361,21 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 foreach (Flight flight in matchingFlights)
                 {
                     flight.DisplayFlightDetails();
-                    if (matchingFlights.Count == 0)
-                    {
-                        Console.WriteLine("\nNo matching flight available");
-                    }
-                    else if (matchingFlights.Count == 1)
-                    {
-                        Console.WriteLine("\nThere is 1 matching flight available");
-
-                    }
-                    else
-                    {
-                        Console.WriteLine($"\nThere are {matchingFlights.Count} matching flights available");
-                    }
                 }
+                if (matchingFlights.Count == 0)//moving the count logic out of the foreach loop to make sure it only run once after search-P.Wu
+                {
+                    Console.WriteLine("\nNo matching flight available");
+                }
+                else if (matchingFlights.Count == 1)
+                {
+                    Console.WriteLine("\nThere is 1 matching flight available");
+
+                }
+                else
+                {
+                    Console.WriteLine($"\nThere are {matchingFlights.Count} matching flights available");
+                }
+                
                 
                 
 
@@ -894,6 +895,15 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             string newbookingDate = Console.ReadLine();
             Console.Write("Enter your name: ");
             string newpassName = Console.ReadLine();
+            if (flightFind.AvailableSeats <= 0)//for making sure there are still remaining seats availivale before actually booking -PWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
+            {
+                Console.WriteLine("\nNo seats available for this flight...");
+                return;
+            }
+
+            /*flightFind.AvailableSeats--;*/ // adding real world logic, after booking, the available seats will need to reduce -PWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
+            //just noticed this logic is written in the booking class, my bad -PWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
+
             Booking newbookList = new Booking(newbookingDate, newpassName,flightFind);
 
             bookList.Add(newbookList);
@@ -917,9 +927,9 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             
                 Console.WriteLine("\tWhich detail do you want to modify?");
                 Console.WriteLine("\t1,Passenger Name");
-                Console.WriteLine("\t2,Available Seats");
-                
-                string choise = Console.ReadLine();
+            //Console.WriteLine("\t2,Available Seats"); // fixing the logic, the available seats can not be modified by user, it is auto genarate by the method in the flights class based on the different model -PWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
+
+            string choise = Console.ReadLine();
 
                 switch (choise)
                 {
@@ -928,11 +938,11 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         PassNameFind.PassengerName = Console.ReadLine();
                         Console.WriteLine("Passenger name updated successful!");
                         break;
-                    case "2":
-                        Console.Write("Enter the new Available Seats: \n");
-                         PassNameFind.BookedFlight.AvailableSeats = Convert.ToInt32( Console.ReadLine());
-                        Console.WriteLine("New available seats updated successful!");
-                        break;
+                    //case "2":
+                    //    Console.Write("Enter the new Available Seats: \n");
+                    //     PassNameFind.BookedFlight.AvailableSeats = Convert.ToInt32( Console.ReadLine());
+                    //    Console.WriteLine("New available seats updated successful!");
+                    //    break;
                     
                     default:
                         Console.WriteLine("Worng option....Please select the correct number.");
@@ -963,6 +973,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                     string confirmRemove = Console.ReadLine().ToUpper();
                     if (confirmRemove == "Y")
                     {
+                        booking.BookedFlight.AvailableSeats++; //returning the seat back after canceling the booking -PWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
                         bookList.Remove(booking);
                         Console.WriteLine("\nBooking removed successfully...");
                     }
