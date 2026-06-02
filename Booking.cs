@@ -20,11 +20,27 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             
             BookingDate = bDate;
             PassengerName = passName;
-            BookedFlight = bookedF;
             
-            if (BookingDate != null)
+            
+            if (bookedF != null)
             {
+                this.BookedFlight = new Flight()
+                {
+                    FlightNumber = bookedF.FlightNumber,
+                    DepartureAirport = bookedF.DepartureAirport,
+                    LandingAirport = bookedF.LandingAirport,
+                    DepartureTime = bookedF.DepartureTime,
+                    Price = bookedF.Price,
+                    AvailableSeats = bookedF.AvailableSeats,
+                    IsLastMinute = bookedF.IsLastMinute,
+                    AircraftModel = bookedF.AircraftModel,
+                };
+
                 bookedF.AvailableSeats--;
+            }
+            else
+            {
+                this.BookedFlight = null;
             }
         }
 

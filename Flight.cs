@@ -35,6 +35,11 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
         public string AircraftModel { get; set; }
 
+        public Flight()
+        {
+
+        }
+
         //constructor for the flight class
         public Flight(string flightNumber, string departureAirport, string landingAirport, string departureTime, double price, int availableSeats, bool isLastMinute, string aircraftModel)
         {
