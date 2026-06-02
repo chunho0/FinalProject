@@ -173,6 +173,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
                     case "6":
                         Console.WriteLine($"\nYou have selected {choice}. Booking Management...");
+                        BookingFlight();
                         break;
 
                     case "7":
@@ -883,6 +884,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
         public static void BookingFlight()
         {
             DisplayFlights();
+            Console.WriteLine();
             Console.Write("Enter the Flight number that you want to make a booking: ");
             string FlightNumber = Console.ReadLine();
             Flight flightFind = flights.Find(f=>f.FlightNumber.Equals(FlightNumber, StringComparison.OrdinalIgnoreCase));
@@ -900,7 +902,14 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 Console.WriteLine("\nNo seats available for this flight...");
                 return;
             }
-
+            Console.WriteLine($"Flight Number: \t\t{FlightNumber}\nPassenger Name:\t\t{newpassName}\n");
+            Console.Write("\nConfirm this booking ?(Y/N): ");
+            string confirmbooking = Console.ReadLine().ToUpper();
+            if (confirmbooking != "Y")
+            {
+                 Console.WriteLine("\nBooking cancelled...");
+            }
+            
             /*flightFind.AvailableSeats--;*/ // adding real world logic, after booking, the available seats will need to reduce -PWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
             //just noticed this logic is written in the booking class, my bad -PWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
 

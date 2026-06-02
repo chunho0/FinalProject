@@ -47,6 +47,18 @@ namespace FinalProject_ChunHoChoy_PeilinWu
         public void bookingDetail()
         {
             
+            Console.WriteLine($"Booking Date: \t\t\t{BookingDate}");
+            Console.WriteLine($"PassengerName: \t\t\t{PassengerName}");
+            Console.WriteLine($"Flight Number: \t\t\t{BookedFlight.FlightNumber}");
+            Console.WriteLine($"Departure Airport: \t\t{BookedFlight.DepartureAirport}");
+            Console.WriteLine($"Landing Airport: \t\t{BookedFlight.LandingAirport}");
+            Console.WriteLine($"Departure Time: \t\t{BookedFlight.DepartureTime}");
+            Console.WriteLine($"Price: \t\t\t\t${BookedFlight.Price}");
+            
+        }
+        
+        public void BookingManagement()
+        {
             Console.WriteLine($"Booking Date: \t\t{BookingDate}");
             Console.WriteLine($"PassengerName: \t\t{PassengerName}");
             Console.WriteLine($"Flight Number: \t\t\t{BookedFlight.FlightNumber}");
@@ -58,10 +70,9 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             Console.WriteLine($"Available Seats: \t\t{BookedFlight.AvailableSeats}");
             Console.WriteLine($"Last Minute Flight: \t\t{BookedFlight.IsLastMinute}");
         }
-        
-   
-    
-    
+
+
+
     }
 
     
