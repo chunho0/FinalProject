@@ -21,7 +21,11 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             BookingDate = bDate;
             PassengerName = passName;
             BookedFlight = bookedF;
-
+            
+            if (BookingDate != null)
+            {
+                bookedF.AvailableSeats--;
+            }
         }
 
         public void bookingDetail()

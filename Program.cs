@@ -765,11 +765,11 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         break;
                     case "4":
                         Console.WriteLine($"\nYou have selected {choice}. Modify Flight Booking...");
-                        
+                        ModifyBooking();
                         break;
                     case "5":
                         Console.WriteLine($"\nYou have selected {choice}. Remove Flight Booking...");
-                        
+                        RemoveBooking();
                         break;
                     case "6":
                         Console.WriteLine($"\nYou have selected {choice}. View Flight Booking...");
@@ -901,6 +901,80 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             Console.WriteLine("Booking successful!!!!!");
         }
 
+        public static void ModifyBooking()
+        {
+            Console.WriteLine("Please enter your user name ");
+            string findPassName = Console.ReadLine();
+            Booking PassNameFind = bookList.Find(b => b.PassengerName.Equals(findPassName, StringComparison.OrdinalIgnoreCase));
+            if (PassNameFind == null)
+            {
+                Console.WriteLine("User name is not found");
+                return;
+            }
+
+            Console.WriteLine($"Account {findPassName} has been found ");
+
+            
+                Console.WriteLine("\tWhich detail do you want to modify?");
+                Console.WriteLine("\t1,Passenger Name");
+                Console.WriteLine("\t2,Available Seats");
+                
+                string choise = Console.ReadLine();
+
+                switch (choise)
+                {
+                    case "1":
+                        Console.Write("Enter the new passenger name: \n");
+                        PassNameFind.PassengerName = Console.ReadLine();
+                        Console.WriteLine("Passenger name updated successful!");
+                        break;
+                    case "2":
+                        Console.Write("Enter the new Available Seats: \n");
+                         PassNameFind.BookedFlight.AvailableSeats = Convert.ToInt32( Console.ReadLine());
+                        Console.WriteLine("New available seats updated successful!");
+                        break;
+                    
+                    default:
+                        Console.WriteLine("Worng option....Please select the correct number.");
+                        break;
+
+
+                }
+        }//end of modify booking
+
+        public static void RemoveBooking()
+        {
+            Console.WriteLine("\n\n---------- Remove Booking ----------");
+            if (bookList.Count == 0)
+            {
+                Console.WriteLine("\nNo booking available...");
+                return;
+            }
+            Console.Write("Enter booking passenger name to remove: ");
+            string passNameRemove = Console.ReadLine();
+            foreach (Booking booking in bookList)
+            {
+                if (booking.PassengerName == passNameRemove)
+                {
+                    booking.bookingDetail();
+                    Console.WriteLine();
+                    Console.WriteLine("----------------------------------");
+                    Console.Write("\nConfirm removing this booking?(Y/N): ");
+                    string confirmRemove = Console.ReadLine().ToUpper();
+                    if (confirmRemove == "Y")
+                    {
+                        bookList.Remove(booking);
+                        Console.WriteLine("\nBooking removed successfully...");
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nRemove cancelled...");
+                    }
+                    return;
+                }
+            }
+            Console.WriteLine("\nBooking not found...");
+        }
 
     }//end of program
 }
