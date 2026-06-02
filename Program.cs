@@ -901,8 +901,8 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 return;
             }
 
-            flightFind.AvailableSeats--; // adding real world logic, after booking, the available seats will need to reduce -PWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
-
+            /*flightFind.AvailableSeats--;*/ // adding real world logic, after booking, the available seats will need to reduce -PWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
+            //just noticed this logic is written in the booking class, my bad -PWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
 
             Booking newbookList = new Booking(newbookingDate, newpassName,flightFind);
 
