@@ -725,7 +725,8 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 Console.WriteLine("Do you wish to continue? (y/n)");
                 answer = Convert.ToChar(Console.ReadLine());
             } while (answer != 'n');
-        }//end of customer menu
+        }//end of customer login menu
+
         //guest menu
         public static void GuestMenu(string userName)
         {
@@ -775,11 +776,14 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         break;
                     case "6":
                         Console.WriteLine($"\nYou have selected {choice}. View Flight Booking...");
-                        foreach(Booking booking in bookList)
-                        {
+                        foreach (Booking booking in bookList)
+                        {   
+                            
                             booking.bookingDetail();
+
+                             
                         }
-                        
+
                         break;
                     case "7":
                         Console.WriteLine($"\nYou have selected {choice}. Display Guest Account...");
@@ -905,19 +909,24 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             Console.WriteLine($"Flight Number: \t\t{FlightNumber}\nPassenger Name:\t\t{newpassName}\n");
             Console.Write("\nConfirm this booking ?(Y/N): ");
             string confirmbooking = Console.ReadLine().ToUpper();
+            Console.WriteLine();
             if (confirmbooking != "Y")
             {
-                 Console.WriteLine("\nBooking cancelled...");
+                Console.WriteLine("\nBooking cancelled...");
             }
-            
-            /*flightFind.AvailableSeats--;*/ // adding real world logic, after booking, the available seats will need to reduce -PWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
-            //just noticed this logic is written in the booking class, my bad -PWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
+            else
+            {
 
-            Booking newbookList = new Booking(newbookingDate, newpassName,flightFind);
 
-            bookList.Add(newbookList);
+                /*flightFind.AvailableSeats--;*/ // adding real world logic, after booking, the available seats will need to reduce -PWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
+                                                 //just noticed this logic is written in the booking class, my bad -PWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
 
-            Console.WriteLine("Booking successful!!!!!");
+                Booking newbookList = new Booking(newbookingDate, newpassName, flightFind);
+
+                bookList.Add(newbookList);
+
+                Console.WriteLine("Booking successful!!!!!");
+            }
         }
 
         public static void ModifyBooking()
@@ -1009,7 +1018,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 Console.WriteLine("\t2. Modify Flight Booking");
                 Console.WriteLine("\t3. Remove Flight Booking");
                 Console.WriteLine("\t4. View Flight Booking");
-                Console.WriteLine("\t5. Logout");
+                Console.WriteLine("\t5. Preceding menu");
                 Console.Write("\nChoose an option: ");
 
                 string choice = Console.ReadLine();
@@ -1041,9 +1050,8 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         break;
 
                     case "5":
-                        Console.WriteLine($"\nYou have selected {choice}. Logout...");
-                        Console.WriteLine("Logging out...");
-                        Console.WriteLine("Logged out...");
+                        Console.WriteLine($"\n Preceding menu..");
+                        
                         return;
 
                     default:

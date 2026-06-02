@@ -9,12 +9,15 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 {
     public class Booking
     {
+        private string bookingDate;
+        private string passengerName;
         
-        public string BookingDate;
-        public string PassengerName;
+        public string BookingDate { get; set; }
+        public string PassengerName { get; set; }
+        
 
         public Flight BookedFlight;
-
+        
         public Booking(string bDate, string passName, Flight bookedF)
         {  
             
@@ -46,7 +49,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
         public void bookingDetail()
         {
-            
+            Console.WriteLine();
             Console.WriteLine($"Booking Date: \t\t\t{BookingDate}");
             Console.WriteLine($"PassengerName: \t\t\t{PassengerName}");
             Console.WriteLine($"Flight Number: \t\t\t{BookedFlight.FlightNumber}");
@@ -54,13 +57,15 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             Console.WriteLine($"Landing Airport: \t\t{BookedFlight.LandingAirport}");
             Console.WriteLine($"Departure Time: \t\t{BookedFlight.DepartureTime}");
             Console.WriteLine($"Price: \t\t\t\t${BookedFlight.Price}");
+            Console.WriteLine();
             
         }
         
         public void BookingManagement()
         {
-            Console.WriteLine($"Booking Date: \t\t{BookingDate}");
-            Console.WriteLine($"PassengerName: \t\t{PassengerName}");
+            Console.WriteLine();
+            Console.WriteLine($"Booking Date: \t\t\t{BookingDate}");
+            Console.WriteLine($"PassengerName: \t\t\t{PassengerName}");
             Console.WriteLine($"Flight Number: \t\t\t{BookedFlight.FlightNumber}");
             Console.WriteLine($"Departure Airport: \t\t{BookedFlight.DepartureAirport}");
             Console.WriteLine($"Landing Airport: \t\t{BookedFlight.LandingAirport}");
@@ -69,6 +74,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             Console.WriteLine($"Aircraft Model: \t\t{BookedFlight.AircraftModel}");
             Console.WriteLine($"Available Seats: \t\t{BookedFlight.AvailableSeats}");
             Console.WriteLine($"Last Minute Flight: \t\t{BookedFlight.IsLastMinute}");
+            Console.WriteLine();
         }
 
 
