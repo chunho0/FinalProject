@@ -895,13 +895,13 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             string newbookingDate = Console.ReadLine();
             Console.Write("Enter your name: ");
             string newpassName = Console.ReadLine();
-            if (flightFind.AvailableSeats <= 0)//for making sure there are still remaining seats availivale before actually booking -PWUUUUUUUUUUUUU
+            if (flightFind.AvailableSeats <= 0)//for making sure there are still remaining seats availivale before actually booking -PWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
             {
                 Console.WriteLine("\nNo seats available for this flight...");
                 return;
             }
 
-            flightFind.AvailableSeats--; // adding real world logic, after booking, the available seats will need to reduce -PWUUUUUUUUUUUUU
+            flightFind.AvailableSeats--; // adding real world logic, after booking, the available seats will need to reduce -PWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
 
 
             Booking newbookList = new Booking(newbookingDate, newpassName,flightFind);
@@ -927,7 +927,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             
                 Console.WriteLine("\tWhich detail do you want to modify?");
                 Console.WriteLine("\t1,Passenger Name");
-            //Console.WriteLine("\t2,Available Seats"); // fixing the logic, the available seats can not be modified by user, it is auto genarate by the method in the flights class based on the different model -PWUUUUUUUUUUUUU
+            //Console.WriteLine("\t2,Available Seats"); // fixing the logic, the available seats can not be modified by user, it is auto genarate by the method in the flights class based on the different model -PWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
 
             string choise = Console.ReadLine();
 
@@ -973,7 +973,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                     string confirmRemove = Console.ReadLine().ToUpper();
                     if (confirmRemove == "Y")
                     {
-                        booking.BookedFlight.AvailableSeats++; //returning the seat back after canceling the booking -PWUUUUUUUUUUUUU
+                        booking.BookedFlight.AvailableSeats++; //returning the seat back after canceling the booking -PWUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
                         bookList.Remove(booking);
                         Console.WriteLine("\nBooking removed successfully...");
                     }
