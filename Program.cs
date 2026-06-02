@@ -973,6 +973,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                     string confirmRemove = Console.ReadLine().ToUpper();
                     if (confirmRemove == "Y")
                     {
+                        booking.BookedFlight.AvailableSeats++; //returning the seat back after canceling the booking -PWUUUUUUUUUUUUU
                         bookList.Remove(booking);
                         Console.WriteLine("\nBooking removed successfully...");
                     }
