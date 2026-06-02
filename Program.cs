@@ -927,9 +927,9 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             
                 Console.WriteLine("\tWhich detail do you want to modify?");
                 Console.WriteLine("\t1,Passenger Name");
-                Console.WriteLine("\t2,Available Seats");
-                
-                string choise = Console.ReadLine();
+            //Console.WriteLine("\t2,Available Seats"); // fixing the logic, the available seats can not be modified by user, it is auto genarate by the method in the flights class based on the different model -PWUUUUUUUUUUUUU
+
+            string choise = Console.ReadLine();
 
                 switch (choise)
                 {
