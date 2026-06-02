@@ -801,8 +801,8 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         Console.WriteLine($"\nYou have selected {choice}. Logout...");
                         Console.WriteLine("Logging out...");
                         Console.WriteLine("Logged out...");
-                        Environment.Exit(0);
-                        break;
+                        return;
+                        
 
                     default:
                         Console.WriteLine("\nInvalid option...");
