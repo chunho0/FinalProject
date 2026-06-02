@@ -361,20 +361,21 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 foreach (Flight flight in matchingFlights)
                 {
                     flight.DisplayFlightDetails();
-                    if (matchingFlights.Count == 0)
-                    {
-                        Console.WriteLine("\nNo matching flight available");
-                    }
-                    else if (matchingFlights.Count == 1)
-                    {
-                        Console.WriteLine("\nThere is 1 matching flight available");
-
-                    }
-                    else
-                    {
-                        Console.WriteLine($"\nThere are {matchingFlights.Count} matching flights available");
-                    }
                 }
+                if (matchingFlights.Count == 0)//moving the count logic out of the foreach loop to make sure it only run once after search-P.Wu
+                {
+                    Console.WriteLine("\nNo matching flight available");
+                }
+                else if (matchingFlights.Count == 1)
+                {
+                    Console.WriteLine("\nThere is 1 matching flight available");
+
+                }
+                else
+                {
+                    Console.WriteLine($"\nThere are {matchingFlights.Count} matching flights available");
+                }
+                
                 
                 
 
