@@ -761,6 +761,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
                     case "3":
                         Console.WriteLine($"\nYou have selected {choice}. Booking Flight...");
+                        BookingFlight();
                         break;
                     case "4":
                         Console.WriteLine($"\nYou have selected {choice}. Modify Flight Booking...");
@@ -772,6 +773,10 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         break;
                     case "6":
                         Console.WriteLine($"\nYou have selected {choice}. View Flight Booking...");
+                        foreach(Booking booking in bookList)
+                        {
+                            booking.bookingDetail();
+                        }
                         
                         break;
                     case "7":
@@ -873,6 +878,28 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             
         }//end of modify account
 
+        //Booking Flight method
+        public static void BookingFlight()
+        {
+            DisplayFlights();
+            Console.Write("Enter the Flight number that you want to make a booking: ");
+            string FlightNumber = Console.ReadLine();
+            Flight flightFind = flights.Find(f=>f.FlightNumber.Equals(FlightNumber, StringComparison.OrdinalIgnoreCase));
+            if (flightFind == null)
+            {
+                Console.WriteLine("Flight number is not found");
+                return;
+            }
+            Console.Write("Enter the date that you want to book: ");
+            string newbookingDate = Console.ReadLine();
+            Console.Write("Enter your name: ");
+            string newpassName = Console.ReadLine();
+            Booking newbookList = new Booking(newbookingDate, newpassName,flightFind);
+
+            bookList.Add(newbookList);
+
+            Console.WriteLine("Booking successful!!!!!");
+        }
 
 
     }//end of program
