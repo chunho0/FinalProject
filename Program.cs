@@ -114,6 +114,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         return;
                     }
 
+                    User.userLoggedIn = user;//this should fix the p1 problem p.wuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
                     Console.WriteLine("\nAdmin login successful..."); //successful
                     AdminMenu();//call AdminMenu method
                     return;
@@ -794,22 +795,22 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         RemoveMyBooking();
                         break;
                     case "6":
-                        Console.WriteLine($"\nYou have selected {choice}. View Flight Booking...");
-                        foreach(Booking booking in bookList)   
+                        Console.WriteLine($"\nYou have selected {choice}. View Flight Booking...");//adding book count, same logic as the flight count so that no booking wont display nnothing
+                        int bookingCount = 0;
+                        foreach (Booking booking in bookList)
                         {
-                            if (User.userLoggedIn != null)
+                            if (booking.UserId != null &&
+                                booking.UserId.Equals(User.userLoggedIn.Username, StringComparison.OrdinalIgnoreCase))
                             {
-                                string loginUser = User.userLoggedIn.Username;
-                                string bookingOwner = booking.UserId;
-
-                                if (bookingOwner.Equals(loginUser, StringComparison.OrdinalIgnoreCase))
-                                {
-                                    booking.bookingDetail();
-                                }
+                                booking.bookingDetail();
+                                bookingCount++;
                             }
-                           
-
                         }
+                        if (bookingCount == 0)
+                        {
+                            Console.WriteLine("\nNo booking found...");
+                        }
+                        break;
 
                         break;
                     case "7":
