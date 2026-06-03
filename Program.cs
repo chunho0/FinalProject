@@ -610,6 +610,11 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                                 {
                                     users.Add(newAdmin);
                                 }
+                                if (newAdmin != null)//fixing problem 3 P.WUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
+                                {
+                                    users.Add(newAdmin);
+                                    Console.WriteLine("\nUser added successfully...");
+                                }
                                 break;
 
                             case "2":
@@ -619,16 +624,19 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                                 {
                                     users.Add(newGuest);
                                 }
+                                if (newGuest != null)//fixing problem 3 P.WUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
+                                {
+                                    users.Add(newGuest);
+                                    Console.WriteLine("\nUser added successfully...");
+                                }
                                 break;
 
                             default:
                                 Console.WriteLine("\nInvalid user type option...");
                                 return;
                         }
-
-                        
-                        Console.WriteLine("\nUser added successfully...");
                         break;
+                        
                     case "3":
                         Console.WriteLine($"\nYou have selected {choice}. Remove User...");
                         break;
