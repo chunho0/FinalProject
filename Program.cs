@@ -1339,6 +1339,45 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             Console.WriteLine("\nBooking not found...");
         }//end of remove booking
 
+        public static void RemoveMyBooking()//exactly same as the privous remove account logic same code here
+        {
+            Console.WriteLine("\n\n---------- Remove My Booking ----------");
+            if (bookList.Count == 0)
+            {
+                Console.WriteLine("\nNo booking available...");
+                return;
+            }
+            Console.Write("Enter booking passenger name to remove: ");
+            string passNameRemove = Console.ReadLine();
+            Booking bookingToRemove = null;
+            foreach (Booking booking in bookList)
+            {
+                if (booking.PassengerName.ToUpper() == passNameRemove.ToUpper() && booking.UserId.ToUpper() == User.userLoggedIn.Username.ToUpper())//same fix
+                {
+                    bookingToRemove = booking;
+                    break;
+                }
+            }
+            if (bookingToRemove == null)
+            {
+                Console.WriteLine("\nBooking not found...");
+                return;
+            }
+            bookingToRemove.bookingDetail();
+            Console.Write("\nConfirm removing this booking? (Y/N): ");
+            string confirmRemove = Console.ReadLine().ToUpper();
+            if (confirmRemove == "Y")
+            {
+                bookingToRemove.BookedFlight.AvailableSeats++;
+                bookList.Remove(bookingToRemove);
+                Console.WriteLine("\nBooking removed successfully...");
+            }
+            else
+            {
+                Console.WriteLine("\nRemove cancelled...");
+            }
+        }
+
         //create the booking menu
         public static void BookingMenu()
         {
