@@ -631,6 +631,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         
                     case "3":
                         Console.WriteLine($"\nYou have selected {choice}. Remove User...");
+                        RemoveUserByAdmin();
                         break;
                     case "4":
                         Console.WriteLine($"\nYou have selected {choice}. Modify User...");
@@ -897,15 +898,15 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 Console.WriteLine("\nInvalid User Index...");
                 return;
             }
-            User userFind = users[userIndex - 1];
+            User userFind = users[userIndex - 1];//take the object out by index and store it in the new local variable
             Console.WriteLine("\n********* Current Account Detail **********");
             userFind.DisplayUserDetails();
             userFind.DisplayGuestDetails();
-            Console.WriteLine("\nWhich detail do you want to modify?");
+            Console.WriteLine("\nWhich detail do you want to modify?");// if the account is admin, only allow to modify these details
             Console.WriteLine("1. Username");
             Console.WriteLine("2. Password");
             Console.WriteLine("3. Role");
-            if (userFind.Role.ToLower() == "guest")
+            if (userFind.Role.ToLower() == "guest")//if the account is guest, allow to modify all details
             {
                 Console.WriteLine("4. Membership");
                 Console.WriteLine("5. Email");
@@ -918,33 +919,78 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             {
                 case "1":
                     Console.Write("Enter new username: ");
-                    userFind.Username = Console.ReadLine();
-                    Console.WriteLine("Username updated successfully...");
+                    string tempUsername = Console.ReadLine();
+                    Console.WriteLine($"New username: {tempUsername}");//add this for user experience, you always want modification to be confirmed before its done
+                    Console.WriteLine("Confirm username update? (Y/N): ");
+                    string confirmUsername = Console.ReadLine().ToUpper();
+                    if (confirmUsername == "Y")
+                    {
+                        userFind.Username = tempUsername;//only assign the new username to the list object after confirmation
+                        Console.WriteLine("Username updated successfully...");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Username update canceled...");
+                    }
                     break;
 
                 case "2":
                     Console.Write("Enter new password: ");
-                    userFind.Password = Console.ReadLine();
-                    Console.WriteLine("Password updated successfully...");
+                    string tempPassword = Console.ReadLine();
+                    Console.WriteLine($"New password: {tempPassword}");
+                    Console.WriteLine("Confirm password update? (Y/N): ");
+                    string confirmPw = Console.ReadLine().ToUpper();
+                    if (confirmPw == "Y")
+                    {
+                        userFind.Password = tempPassword;
+                        Console.WriteLine("Password updated successfully...");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Password update canceled...");
+                    }
                     break;
 
                 case "3":
                     Console.Write("Enter new role: ");
-                    userFind.Role = Console.ReadLine().ToLower();
-                    Console.WriteLine("Role updated successfully...");
+                    string tempRole = Console.ReadLine().ToLower();
+                    Console.WriteLine($"New role: {tempRole}");
+                    Console.WriteLine("Confirm role update? (Y/N): ");
+                    string confirmRl = Console.ReadLine().ToUpper();
+                    if (confirmRl == "Y")
+                    {
+                        userFind.Role = tempRole;
+                        Console.WriteLine("Role updated successfully...");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Role update canceled...");
+                    }
                     break;
 
                 case "4":
                     if (userFind.Role.ToLower() == "guest")
                     {
                         Guest guestfind = (Guest)userFind;
-                        guestfind.Membership = User.ChooseMembership();
-                        Console.WriteLine("Membership updated successfully...");
+                        string tempMembership = User.ChooseMembership();
+                        Console.WriteLine($"New role: {tempMembership}");
+                        Console.WriteLine("Confirm role update? (Y/N): ");
+                        string confirmMBS = Console.ReadLine().ToUpper();
+                        if (confirmMBS == "Y")
+                        {
+                            guestfind.Membership = tempMembership;
+                            Console.WriteLine("Membership updated successfully...");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Role update canceled...");
+                        }
+                        
                     }
-                    else
-                    {
-                        Console.WriteLine("This option is only for guest accounts...");
-                    }
+                    //else
+                    //{
+                    //    Console.WriteLine("This option is only for guest accounts...");//this menu won't show
+                    //}
                     break;
 
                 case "5":
@@ -952,13 +998,24 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                     {
                         Guest guestfind = (Guest)userFind;
                         Console.Write("Enter new email: ");
-                        guestfind.Email = Console.ReadLine();
-                        Console.WriteLine("Email updated successfully...");
+                        string tempEmail = Console.ReadLine();
+                        Console.WriteLine($"New email: {tempEmail}");
+                        Console.WriteLine("Confirm email update? (Y/N): ");
+                        string confirmEm = Console.ReadLine().ToUpper();
+                        if (confirmEm == "Y")
+                        {
+                            guestfind.Email = tempEmail;
+                            Console.WriteLine("Email updated successfully...");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Email update canceled...");
+                        }
                     }
-                    else
-                    {
-                        Console.WriteLine("This option is only for guest accounts...");
-                    }
+                    //else
+                    //{
+                    //    Console.WriteLine("This option is only for guest accounts...");
+                    //}
                     break;
 
                 case "6":
@@ -966,13 +1023,24 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                     {
                         Guest guestfind = (Guest)userFind;
                         Console.Write("Enter new phone number: ");
-                        guestfind.PhoneNumber = Console.ReadLine();
-                        Console.WriteLine("Phone number updated successfully...");
+                        string tempPhone = Console.ReadLine();
+                        Console.WriteLine($"New phone number: {tempPhone}");
+                        Console.WriteLine("Confirm phone number update? (Y/N): ");
+                        string confirmPh = Console.ReadLine().ToUpper();
+                        if (confirmPh == "Y")
+                        {
+                            guestfind.PhoneNumber = tempPhone;
+                            Console.WriteLine("Phone number updated successfully...");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Phone number update canceled...");
+                        }
                     }
-                    else
-                    {
-                        Console.WriteLine("This option is only for guest accounts...");
-                    }
+                    //else
+                    //{
+                    //    Console.WriteLine("This option is only for guest accounts...");
+                    //}
                     break;
 
                 case "7":
@@ -980,18 +1048,67 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                     {
                         Guest guestfind = (Guest)userFind;
                         Console.Write("Enter new address: ");
-                        guestfind.Address = Console.ReadLine();
-                        Console.WriteLine("Address updated successfully...");
+                        string tempAddress = Console.ReadLine();
+                        Console.WriteLine($"New address: {tempAddress}");
+                        Console.WriteLine("Confirm address update? (Y/N): ");
+                        string confirmAdrs = Console.ReadLine().ToUpper();
+                        if (confirmAdrs == "Y")
+                        {
+                            guestfind.Address = tempAddress;
+                            Console.WriteLine("Address updated successfully...");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Address update canceled...");
+                        } 
                     }
-                    else
-                    {
-                        Console.WriteLine("This option is only for guest accounts...");
-                    }
+                    //else
+                    //{
+                    //    Console.WriteLine("This option is only for guest accounts...");
+                    //}
                     break;
 
                 default:
                     Console.WriteLine("Invalid option...");
                     break;
+            }
+        }
+
+        public static void RemoveUserByAdmin()
+        {
+            Console.WriteLine("\n********* User List *********");
+            int i = 1;
+            foreach (User user in users)
+            {
+                Console.WriteLine($"{i}. {user.Username} ({user.Role})");
+                i++;
+            }
+            Console.Write("\nEnter User Index to remove: ");
+            int userIndex = Convert.ToInt32(Console.ReadLine());
+            if (userIndex < 1 || userIndex > users.Count)
+            {
+                Console.WriteLine("\nInvalid User Index...");
+                return;
+            }
+            User userToRemove = users[userIndex - 1];//take the object out by index and store it in the new local variable,
+            if (userToRemove.Role.ToLower() == "admin")
+            {
+                Console.WriteLine("\nAdmin account cannot be removed...");
+                return;
+            }
+            Console.WriteLine("\n********* User Detail **********");
+            userToRemove.DisplayUserDetails();
+            userToRemove.DisplayGuestDetails();
+            Console.Write("\nConfirm removing this user? (Y/N): ");
+            string confirmRemove = Console.ReadLine().ToUpper();
+            if (confirmRemove == "Y")
+            {
+                users.Remove(userToRemove);
+                Console.WriteLine("\nUser removed successfully...");
+            }
+            else
+            {
+                Console.WriteLine("\nRemove cancelled...");
             }
         }
 
