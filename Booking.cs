@@ -17,35 +17,22 @@ namespace FinalProject_ChunHoChoy_PeilinWu
         public string UserId {  get; set; }
 
         public Flight BookedFlight;
-        
-        
+
+
         public Booking(string bDate, string passName, Flight bookedF)
-        {  
-            
+        {
             BookingDate = bDate;
             PassengerName = passName;
             UserId = User.userLoggedIn?.Username;
 
-
             if (bookedF != null)
             {
-                this.BookedFlight = new Flight()
-                {
-                    FlightNumber = bookedF.FlightNumber,
-                    DepartureAirport = bookedF.DepartureAirport,
-                    LandingAirport = bookedF.LandingAirport,
-                    DepartureTime = bookedF.DepartureTime,
-                    Price = bookedF.Price,
-                    AvailableSeats = bookedF.AvailableSeats,
-                    IsLastMinute = bookedF.IsLastMinute,
-                    AircraftModel = bookedF.AircraftModel,
-                };
-
-                bookedF.AvailableSeats--;
+                BookedFlight = bookedF;//fixing problem 1 P.WUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
+                BookedFlight.AvailableSeats--;
             }
             else
             {
-                this.BookedFlight = null;
+                BookedFlight = null;
             }
         }
 
