@@ -200,22 +200,36 @@ namespace FinalProject_ChunHoChoy_PeilinWu
         //DisplayFlights method
         static void DisplayFlights()
         {
-
-            int flightIndex = 1;
-
-            Console.WriteLine("\n\n----------Flight Details----------");
-
-            if (flights.Count == 0)
+            Flight.DisplayFlightList(flights);//adding this list to make better user experience
+            Console.Write("Which flight detail do you want to display? (Enter flight index, or 99 to display all flights):\t");
+            int indexInput = Convert.ToInt32(Console.ReadLine());
+            if (indexInput == 99)
             {
-                Console.WriteLine("\nNo flights available...");
+                int flightIndex = 1;
+                Console.WriteLine("\n\n----------Flight Details----------");
+                if (flights.Count == 0)
+                {
+                    Console.WriteLine("\nNo flights available...");
+                    return;
+                }//end of if statement
+                foreach (Flight flightD in flights)
+                {
+                    Console.WriteLine($"\n\n----------Flight{flightIndex} Detail----------");
+                    flightD.DisplayFlightDetails();
+                    flightIndex++;
+                }//end of foreach loop
+            }
+            if (indexInput < 1 || indexInput > flights.Count)
+            {
+                Console.WriteLine("\nInvalid Flight Index...");
                 return;
-            }//end of if statement
-            foreach (Flight flightD in flights)
-            {
-                Console.WriteLine($"\n\n----------Flight{flightIndex} Detail ----------");
-                flightD.DisplayFlightDetails();
-                flightIndex++;
-            }//end of foreach loop
+            }
+            Flight flightToDisplay = flights[indexInput - 1];
+            Console.WriteLine();
+            Console.WriteLine($"----------Flight{indexInput} Detail----------");
+            flightToDisplay.DisplayFlightDetails();
+
+
         }//end of display method
 
         //creating the add flight method
