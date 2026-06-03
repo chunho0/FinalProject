@@ -686,6 +686,8 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 Console.WriteLine("1, Guest Login");
                 Console.WriteLine("2, Register a new account");
                 Console.WriteLine("3, Back to the login menu");
+                Console.WriteLine();
+                Console.Write("Please type in the number to select the option");
                 string option = Console.ReadLine();
                 switch (option)
                 {
@@ -1226,12 +1228,15 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 Console.WriteLine("\nNo seats available for this flight...");
                 return;
             }
+            Console.WriteLine();
             Console.WriteLine($"Flight Number: \t\t{FlightNumber}\nPassenger Name:\t\t{newpassName}\n");
+            Console.WriteLine();
             Console.Write("\nConfirm this booking ?(Y/N): ");
             string confirmbooking = Console.ReadLine().ToUpper();
             Console.WriteLine();
             if (confirmbooking != "Y")
             {
+                Console.WriteLine();
                 Console.WriteLine("\nBooking cancelled...");
             }
             else
