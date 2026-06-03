@@ -538,6 +538,14 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             {
                 if (flight.FlightNumber.ToUpper() == removeFlightNumber)
                 {
+                    foreach (Booking booking in bookList)//adding this logic to make sure when there is a booking with the flight, the flight can not be removed
+                    {
+                        if (booking.BookedFlight.FlightNumber.ToUpper() == removeFlightNumber.ToUpper())
+                        {
+                            Console.WriteLine("\nThis flight has bookings and cannot be removed...");
+                            return;
+                        }
+                    }
                     flight.DisplayFlightDetails();
                     Console.WriteLine();
                     Console.WriteLine("----------------------------------");
@@ -545,6 +553,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                     string confirmRemove = Console.ReadLine().ToUpper();
                     if (confirmRemove == "Y")
                     {
+                        
                         flights.Remove(flight);
                         Console.WriteLine("\nFlight removed successfully...");
                     }
