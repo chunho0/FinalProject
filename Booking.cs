@@ -39,6 +39,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
         public void bookingDetail()
         {
             Console.WriteLine();
+            Console.WriteLine($"Booked By: \t\t\t{UserId}");//fixing User Experience P1 P.WUUUUUUUUUUUUUUUUUUU
             Console.WriteLine($"Booking Date: \t\t\t{BookingDate}");
             Console.WriteLine($"PassengerName: \t\t\t{PassengerName}");
             Console.WriteLine($"Flight Number: \t\t\t{BookedFlight.FlightNumber}");
@@ -53,6 +54,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
         public void BookingManagement()
         {
             Console.WriteLine();
+            Console.WriteLine($"Booked By: \t\t\t{UserId}");//fixing User Experience P1 P.WUUUUUUUUUUUUUUUUUUU
             Console.WriteLine($"Booking Date: \t\t\t{BookingDate}");
             Console.WriteLine($"PassengerName: \t\t\t{PassengerName}");
             Console.WriteLine($"Flight Number: \t\t\t{BookedFlight.FlightNumber}");
