@@ -779,7 +779,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         break;
                     case "5":
                         Console.WriteLine($"\nYou have selected {choice}. Remove Flight Booking...");
-                        RemoveBooking();
+                        RemoveMyBooking();
                         break;
                     case "6":
                         Console.WriteLine($"\nYou have selected {choice}. View Flight Booking...");
@@ -1339,7 +1339,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             Console.WriteLine("\nBooking not found...");
         }//end of remove booking
 
-        public static void RemoveMyBooking()//exactly same as the privous remove account logic same code here
+        public static void RemoveMyBooking()//exactly same as the privous modify booking  logic same code here
         {
             Console.WriteLine("\n\n---------- Remove My Booking ----------");
             if (bookList.Count == 0)
