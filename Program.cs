@@ -773,7 +773,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         break;
                     case "4":
                         Console.WriteLine($"\nYou have selected {choice}. Modify Flight Booking...");
-                        ModifyBooking();
+                        ModifyMyBooking();
                         break;
                     case "5":
                         Console.WriteLine($"\nYou have selected {choice}. Remove Flight Booking...");
@@ -1027,6 +1027,48 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
                 }
         }//end of modify booking
+
+        public static void ModifyMyBooking()// for making sure only the user who made the booking can modify the booking, fixing problem 5 P.WUUUUUUUUUUUUUUUUUUUUUUUU
+        {
+            Console.Write("Enter passenger name: ");
+            string findPassName = Console.ReadLine();
+
+            Booking PassNameFind = null;//creating a new object to store the matched booking
+
+            foreach (Booking booking in bookList)
+            {
+                if (booking.PassengerName.ToUpper() == findPassName.ToUpper() && booking.UserId.ToUpper() == User.userLoggedIn.Username.ToUpper())//adding the username comparison to make sure only
+                                                                                                        //the user who made the booking can modify the booking
+                {
+                    PassNameFind = booking;// making the new object refer to the booking object in the booking class.
+                    break;
+                }
+            }
+            if (PassNameFind == null)
+            {
+                Console.WriteLine("Booking not found...");
+                return;
+            }
+            Console.WriteLine($"\nPassenger {findPassName} has been found");
+            PassNameFind.bookingDetail();//display the current booking details before modification, more user friendly
+            Console.WriteLine("\nWhich detail do you want to modify?");
+            Console.WriteLine("1. Passenger Name");
+            string choice = Console.ReadLine();
+            switch (choice)
+            {
+                case "1":
+                    Console.Write("Enter new passenger name: ");
+                    PassNameFind.PassengerName =
+                        Console.ReadLine();
+                    Console.WriteLine(
+                        "Passenger name updated successfully!"
+                    );
+                    break;
+                default:
+                    Console.WriteLine("Invalid option...");
+                    break;
+            }
+        }
         
         //create the remove booking method
         public static void RemoveBooking()
