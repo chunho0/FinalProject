@@ -832,21 +832,12 @@ namespace FinalProject_ChunHoChoy_PeilinWu
         //create a modify account method
         public static void ModifyAccount()
         {
-            
-
-            Console.WriteLine("Please enter your user name ");
-            string findUserName = Console.ReadLine();
-            User userFind = users.Find(u => u.Username.Equals(findUserName, StringComparison.OrdinalIgnoreCase));
-            if (userFind == null)
-            {
-                Console.WriteLine("User name is not found");
-                return;
-            }
-            
-            Console.WriteLine($"Account {findUserName} has been found ");
-
+            User userFind = User.userLoggedIn;// storing userloggedin from the user class to a new variable
             if (userFind is Guest guestfind)
             {
+                Console.WriteLine("----------Current User Detail----------");//fixing problem 4 P.WUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
+                userFind.DisplayUserDetails();
+                guestfind.DisplayGuestDetails();// display current detail before modification, more user friendly
                 Console.WriteLine("\tWhich detail do you want to modify?");
                 Console.WriteLine("\t1,User Name");
                 Console.WriteLine("\t2,Password");
@@ -869,7 +860,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         break;
                     case "3":
                         Console.Write("Enter the new email: \n");
-                        guestfind.Email =  Console.ReadLine();
+                        guestfind.Email = Console.ReadLine();
                         Console.WriteLine("Email updated successful!");
                         break;
                     case "4":
@@ -885,16 +876,70 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                     default:
                         Console.WriteLine("Worng option....Please select the correct number.");
                         break;
-
-
                 }
+            }
 
-            }
-            else
-            {
-                Console.WriteLine("This is not a guest account, so you cannot modify the account.");
-            }
-            
+            //Console.WriteLine("Please enter your user name ");
+            //string findUserName = Console.ReadLine();
+            //User userFind = users.Find(u => u.Username.Equals(findUserName, StringComparison.OrdinalIgnoreCase));
+            //if (userFind == null)
+            //{
+            //    Console.WriteLine("User name is not found");
+            //    return;
+            //}
+
+            //Console.WriteLine($"Account {findUserName} has been found ");
+
+            //if (userFind is Guest guestfind)
+            //{
+            //    Console.WriteLine("\tWhich detail do you want to modify?");
+            //    Console.WriteLine("\t1,User Name");
+            //    Console.WriteLine("\t2,Password");
+            //    Console.WriteLine("\t3,Email");
+            //    Console.WriteLine("\t4,PhoneNumber");
+            //    Console.WriteLine("\t5,Address");
+            //    string choise = Console.ReadLine();
+
+            //    switch (choise)
+            //    {
+            //        case "1":
+            //            Console.Write("Enter the new user name: \n");
+            //            userFind.Username = Console.ReadLine();
+            //            Console.WriteLine("User name updated successful!");
+            //            break;
+            //        case "2":
+            //            Console.Write("Enter the new password: \n");
+            //            userFind.Password = Console.ReadLine();
+            //            Console.WriteLine("Password updated successful!");
+            //            break;
+            //        case "3":
+            //            Console.Write("Enter the new email: \n");
+            //            guestfind.Email =  Console.ReadLine();
+            //            Console.WriteLine("Email updated successful!");
+            //            break;
+            //        case "4":
+            //            Console.Write("Enter the new phone number: \n");
+            //            guestfind.PhoneNumber = Console.ReadLine();
+            //            Console.WriteLine("Phone number updated successful!");
+            //            break;
+            //        case "5":
+            //            Console.Write("Enter the new address: \n");
+            //            guestfind.Address = Console.ReadLine();
+            //            Console.WriteLine("Address updated successful!");
+            //            break;
+            //        default:
+            //            Console.WriteLine("Worng option....Please select the correct number.");
+            //            break;
+
+
+            //    }
+
+            //}
+            //else
+            //{
+            //    Console.WriteLine("This is not a guest account, so you cannot modify the account.");
+            //}
+
         }//end of modify account
 
         //Booking Flight method
