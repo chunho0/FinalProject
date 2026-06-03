@@ -705,7 +705,10 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
                         foreach (User user in users)
                         {
-                            
+                            if (newCustomer == null)// fixing problem 2 P.WUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
+                            {
+                                return;
+                            }
                             if (user.Username.ToLower() == newCustomer.Username.ToLower())
                             {
                                 Console.WriteLine("\nUsername already exists...");
