@@ -408,13 +408,13 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 Console.WriteLine("\nNo flights available...");
                 return;
             }
-
-            Console.Write("Enter flight number to update: ");
-            string updateFlightNumber = Console.ReadLine().ToUpper();
+            Flight.DisplayFlightList(flights);//adding list for better user experience
+            Console.Write("Enter flight index to update: ");
+            int updateFlightIndex = Convert.ToInt32(Console.ReadLine());
 
             foreach (Flight flight in flights)
             {
-                if (flight.FlightNumber.ToUpper() == updateFlightNumber)
+                if (flights.IndexOf(flight) == updateFlightIndex - 1)
                 {
                     flight.DisplayFlightDetails();
                     Console.WriteLine();
@@ -533,13 +533,14 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 Console.WriteLine("\nNo flights available...");
                 return;
             }
-            Console.WriteLine("\n---------- Flight List ----------");//adding this idex flight list to make the user experience better
-            int i = 1;                                              // this is wayy better than type the flight number
-            foreach (Flight flight in flights)
-            {
-                Console.WriteLine($"{i}. {flight.FlightNumber} ({flight.DepartureAirport} ----> {flight.LandingAirport})\t{flight.DepartureTime}");
-                i++;
-            }
+            Flight.DisplayFlightList(flights);
+            //Console.WriteLine("\n---------- Flight List ----------");//adding this idex flight list to make the user experience better
+            //int i = 1;                                              // this is wayy better than type the flight number
+            //foreach (Flight flight in flights)
+            //{
+            //    Console.WriteLine($"{i}. {flight.FlightNumber} ({flight.DepartureAirport} ----> {flight.LandingAirport})\t{flight.DepartureTime}");
+            //    i++;
+            //}
             Console.Write("\nEnter Flight Index to remove: ");
             int flightIndex = Convert.ToInt32(Console.ReadLine());
             if (flightIndex < 1 || flightIndex > flights.Count)

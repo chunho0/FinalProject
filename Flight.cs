@@ -172,5 +172,16 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             return matchingFlights;
 
         }
+
+        public static void DisplayFlightList(List<Flight> flights) //i have tested, adding this display will improve user experience so much
+        {                                                          //i have previously added this in the remove flight method but i realized this can be used in many other methods
+            Console.WriteLine("\n---------- Flight List ----------");
+            int i = 1;
+            foreach (Flight flight in flights)
+            {
+                Console.WriteLine($"{i}. {flight.FlightNumber} | {flight.DepartureAirport} ---> {flight.LandingAirport} | {flight.DepartureTime}");
+                i++;
+            }
+        }
     }
 }
