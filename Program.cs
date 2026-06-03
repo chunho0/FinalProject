@@ -605,11 +605,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         {
                             case "1":
                                 Console.WriteLine("\nYou have selected to add an Admin...");
-                                User newAdmin = User.AddAdmin("admin");//calling add admin method
-                                if (newAdmin != null)
-                                {
-                                    users.Add(newAdmin);
-                                }
+                                User newAdmin = User.AddAdmin("admin");//calling add admin method 
                                 if (newAdmin != null)//fixing problem 3 P.WUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
                                 {
                                     users.Add(newAdmin);
@@ -620,10 +616,6 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                             case "2":
                                 Console.WriteLine("\nYou have selected to add a Guest...");
                                 Guest newGuest = Guest.AddGuest("guest", User.ChooseMembership());//calling addguest method and admin can choose membership
-                                if (newGuest != null)
-                                {
-                                    users.Add(newGuest);
-                                }
                                 if (newGuest != null)//fixing problem 3 P.WUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
                                 {
                                     users.Add(newGuest);
