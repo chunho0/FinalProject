@@ -219,6 +219,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                     flightD.DisplayFlightDetails();
                     flightIndex++;
                 }//end of foreach loop
+                return;
             }
             if (indexInput < 1 || indexInput > flights.Count)
             {
@@ -683,11 +684,12 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             char answer = 'y';
             do
             {
-                Console.WriteLine("1, Guest Login");
-                Console.WriteLine("2, Register a new account");
-                Console.WriteLine("3, Back to the login menu");
+                Console.WriteLine("\n\n---------- Guest Login ----------");
+                Console.WriteLine("1. Guest Login");
+                Console.WriteLine("2. Guest Register");
+                Console.WriteLine("3. Back to main menu");
                 Console.WriteLine();
-                Console.Write("Please type in the number to select the option");
+                Console.Write("Choose an option: ");
                 string option = Console.ReadLine();
                 switch (option)
                 {
@@ -760,6 +762,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         Console.WriteLine("Please enter the correct number");
                         break;
                 }
+                Console.WriteLine();
                 Console.WriteLine("Do you wish to continue? (y/n)");
                 answer = Convert.ToChar(Console.ReadLine());
             } while (answer != 'n');

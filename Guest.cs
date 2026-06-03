@@ -46,7 +46,9 @@ namespace FinalProject_ChunHoChoy_PeilinWu
 
         public static Guest AddGuest(string role, string membership) // this method can be used in the guset loin as well cuz role and membership can be passed as parameters without user input
         {
+            
             Console.WriteLine("\nEnter guest details:");
+            Console.WriteLine();
             Console.Write("Username: ");
             string username = Console.ReadLine();
             Console.Write("Password: ");
@@ -57,23 +59,25 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             string phoneNumber = Console.ReadLine();
             Console.Write("Address: ");
             string address = Console.ReadLine();
-
+            Console.WriteLine();
             Console.WriteLine("------Confirm Guest Details------");
-            Console.WriteLine($"Username: {username}");
-            Console.WriteLine($"Password: {password}");
-            Console.WriteLine($"Email: {email}");
-            Console.WriteLine($"Phone Number: {phoneNumber}");
-            Console.WriteLine($"Address: {address}");
-
+            Console.WriteLine($"Username:\t\t{username}");
+            Console.WriteLine($"Password:\t\t{password}");
+            Console.WriteLine($"Email:\t\t\t{email}");
+            Console.WriteLine($"Phone Number:\t\t{phoneNumber}");
+            Console.WriteLine($"Address:\t\t{address}");
+            Console.WriteLine();
             Console.Write("Are the details correct? (Y/N): ");
             string confirmation = Console.ReadLine().ToUpper();
             if (confirmation == "Y")
             {
-                Console.WriteLine("Guest Added");
+                Console.WriteLine();
+                Console.WriteLine("Guest Added......");
                 return new Guest(username, password, role, membership, email, phoneNumber, address);
             }
             else
             {
+                Console.WriteLine();
                 Console.WriteLine("Cancelled adding guest.");
                 return null;
             }
