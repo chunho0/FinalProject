@@ -523,7 +523,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
             //this logic is almost the same as the search flight and add flight method
         }//end of update flight method
 
-        //creating removeflight method
+        //creating removeflight method           
         static void RemoveFlight()
         {
             Console.WriteLine("\n\n---------- Remove Flight ----------");
@@ -532,39 +532,42 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                 Console.WriteLine("\nNo flights available...");
                 return;
             }
-            Console.Write("Enter flight number to remove: ");
-            string removeFlightNumber = Console.ReadLine().ToUpper();
+            Console.WriteLine("\n---------- Flight List ----------");//adding this idex flight list to make the user experience better
+            int i = 1;                                              // this is wayy better than type the flight number
             foreach (Flight flight in flights)
             {
-                if (flight.FlightNumber.ToUpper() == removeFlightNumber)
+                Console.WriteLine($"{i}. {flight.FlightNumber} ({flight.DepartureAirport} ----> {flight.LandingAirport})\t{flight.DepartureTime}");
+                i++;
+            }
+            Console.Write("\nEnter Flight Index to remove: ");
+            int flightIndex = Convert.ToInt32(Console.ReadLine());
+            if (flightIndex < 1 || flightIndex > flights.Count)
+            {
+                Console.WriteLine("\nInvalid Flight Index...");
+                return;
+            }
+            Flight flightToRemove = flights[flightIndex - 1];
+            foreach (Booking booking in bookList)//adding this logic to make sure when there is a booking with the flight, the flight can not be removed
+            {
+                if (booking.BookedFlight.FlightNumber.ToUpper() == flightToRemove.FlightNumber.ToUpper())
                 {
-                    foreach (Booking booking in bookList)//adding this logic to make sure when there is a booking with the flight, the flight can not be removed
-                    {
-                        if (booking.BookedFlight.FlightNumber.ToUpper() == removeFlightNumber.ToUpper())
-                        {
-                            Console.WriteLine("\nThis flight has bookings and cannot be removed...");
-                            return;
-                        }
-                    }
-                    flight.DisplayFlightDetails();
-                    Console.WriteLine();
-                    Console.WriteLine("----------------------------------");
-                    Console.Write("\nConfirm removing this flight?(Y/N): ");
-                    string confirmRemove = Console.ReadLine().ToUpper();
-                    if (confirmRemove == "Y")
-                    {
-                        
-                        flights.Remove(flight);
-                        Console.WriteLine("\nFlight removed successfully...");
-                    }
-                    else
-                    {
-                        Console.WriteLine("\nRemove cancelled...");
-                    }
+                    Console.WriteLine("\nThis flight has bookings and cannot be removed...");
                     return;
                 }
             }
-            Console.WriteLine("\nFlight not found...");
+            Console.WriteLine("\n---------- Flight Detail ----------");
+            flightToRemove.DisplayFlightDetails();
+            Console.Write("\nConfirm removing this flight? (Y/N): ");
+            string confirmRemove = Console.ReadLine().ToUpper();
+            if (confirmRemove == "Y")
+            {
+                flights.Remove(flightToRemove);
+                Console.WriteLine("\nFlight removed successfully...");
+            }
+            else
+            {
+                Console.WriteLine("\nRemove cancelled...");
+            }
         }//end of remove flight method
 
 
