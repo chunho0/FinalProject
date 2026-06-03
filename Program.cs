@@ -201,6 +201,7 @@ namespace FinalProject_ChunHoChoy_PeilinWu
         static void DisplayFlights()
         {
             Flight.DisplayFlightList(flights);//adding this list to make better user experience
+            Console.WriteLine();
             Console.Write("Which flight detail do you want to display? (Enter flight index, or 99 to display all flights):\t");
             int indexInput = Convert.ToInt32(Console.ReadLine());
             if (indexInput == 99)
