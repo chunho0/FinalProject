@@ -833,7 +833,6 @@ namespace FinalProject_ChunHoChoy_PeilinWu
                         }
                         break;
 
-                        break;
                     case "7":
                         Console.WriteLine($"\nYou have selected {choice}. Display Guest Account...");
                         if(User.userLoggedIn != null)//display the guest account details
